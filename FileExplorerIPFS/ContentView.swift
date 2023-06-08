@@ -13,10 +13,23 @@ struct ContentView: View {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            Text("Hello, Cydrive!")
+            
+            Button("Start Cydrive", action: startServe)
+            
+            Button("Stop Cydrive", action: endServe)
+            
         }
         .padding()
     }
+}
+
+func startServe() {
+        var _: () = FileProvide().applicationDidFinishLaunching()
+}
+
+func endServe() {
+    var _: () = FileProvide().endCydrive()
 }
 
 struct ContentView_Previews: PreviewProvider {

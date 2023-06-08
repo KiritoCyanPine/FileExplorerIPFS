@@ -11,7 +11,38 @@
 		3230825B2A31032D006A3380 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3230825A2A31032D006A3380 /* ContentView.swift */; };
 		3230825D2A31032E006A3380 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3230825C2A31032E006A3380 /* Assets.xcassets */; };
 		323082602A31032E006A3380 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3230825F2A31032E006A3380 /* Preview Assets.xcassets */; };
+		3230826E2A31037E006A3380 /* UniformTypeIdentifiers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3230826D2A31037E006A3380 /* UniformTypeIdentifiers.framework */; };
+		323082712A31037E006A3380 /* FileProviderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323082702A31037E006A3380 /* FileProviderExtension.swift */; };
+		323082732A31037E006A3380 /* FileProviderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323082722A31037E006A3380 /* FileProviderItem.swift */; };
+		323082752A31037E006A3380 /* FileProviderEnumerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323082742A31037E006A3380 /* FileProviderEnumerator.swift */; };
+		3230827A2A31037E006A3380 /* Extention.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 3230826B2A31037E006A3380 /* Extention.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		323082802A3103CB006A3380 /* FileConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3230827F2A3103CB006A3380 /* FileConnection.swift */; };
+		323082812A3103CB006A3380 /* FileConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3230827F2A3103CB006A3380 /* FileConnection.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		323082782A31037E006A3380 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3230824D2A31032D006A3380 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3230826A2A31037E006A3380;
+			remoteInfo = Extention;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3230827E2A31037E006A3380 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				3230827A2A31037E006A3380 /* Extention.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		323082552A31032D006A3380 /* FileExplorerIPFS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FileExplorerIPFS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -20,6 +51,14 @@
 		3230825C2A31032E006A3380 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3230825F2A31032E006A3380 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		323082612A31032E006A3380 /* FileExplorerIPFS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FileExplorerIPFS.entitlements; sourceTree = "<group>"; };
+		3230826B2A31037E006A3380 /* Extention.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Extention.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		3230826D2A31037E006A3380 /* UniformTypeIdentifiers.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UniformTypeIdentifiers.framework; path = System/Library/Frameworks/UniformTypeIdentifiers.framework; sourceTree = SDKROOT; };
+		323082702A31037E006A3380 /* FileProviderExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileProviderExtension.swift; sourceTree = "<group>"; };
+		323082722A31037E006A3380 /* FileProviderItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileProviderItem.swift; sourceTree = "<group>"; };
+		323082742A31037E006A3380 /* FileProviderEnumerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileProviderEnumerator.swift; sourceTree = "<group>"; };
+		323082762A31037E006A3380 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		323082772A31037E006A3380 /* Extention.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Extention.entitlements; sourceTree = "<group>"; };
+		3230827F2A3103CB006A3380 /* FileConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileConnection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -30,6 +69,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		323082682A31037E006A3380 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3230826E2A31037E006A3380 /* UniformTypeIdentifiers.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -37,6 +84,8 @@
 			isa = PBXGroup;
 			children = (
 				323082572A31032D006A3380 /* FileExplorerIPFS */,
+				3230826F2A31037E006A3380 /* Extention */,
+				3230826C2A31037E006A3380 /* Frameworks */,
 				323082562A31032D006A3380 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -45,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				323082552A31032D006A3380 /* FileExplorerIPFS.app */,
+				3230826B2A31037E006A3380 /* Extention.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -57,6 +107,7 @@
 				3230825C2A31032E006A3380 /* Assets.xcassets */,
 				323082612A31032E006A3380 /* FileExplorerIPFS.entitlements */,
 				3230825E2A31032E006A3380 /* Preview Content */,
+				3230827F2A3103CB006A3380 /* FileConnection.swift */,
 			);
 			path = FileExplorerIPFS;
 			sourceTree = "<group>";
@@ -69,6 +120,26 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		3230826C2A31037E006A3380 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3230826D2A31037E006A3380 /* UniformTypeIdentifiers.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3230826F2A31037E006A3380 /* Extention */ = {
+			isa = PBXGroup;
+			children = (
+				323082702A31037E006A3380 /* FileProviderExtension.swift */,
+				323082722A31037E006A3380 /* FileProviderItem.swift */,
+				323082742A31037E006A3380 /* FileProviderEnumerator.swift */,
+				323082762A31037E006A3380 /* Info.plist */,
+				323082772A31037E006A3380 /* Extention.entitlements */,
+			);
+			path = Extention;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -79,15 +150,34 @@
 				323082512A31032D006A3380 /* Sources */,
 				323082522A31032D006A3380 /* Frameworks */,
 				323082532A31032D006A3380 /* Resources */,
+				3230827E2A31037E006A3380 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				323082792A31037E006A3380 /* PBXTargetDependency */,
 			);
 			name = FileExplorerIPFS;
 			productName = FileExplorerIPFS;
 			productReference = 323082552A31032D006A3380 /* FileExplorerIPFS.app */;
 			productType = "com.apple.product-type.application";
+		};
+		3230826A2A31037E006A3380 /* Extention */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3230827B2A31037E006A3380 /* Build configuration list for PBXNativeTarget "Extention" */;
+			buildPhases = (
+				323082672A31037E006A3380 /* Sources */,
+				323082682A31037E006A3380 /* Frameworks */,
+				323082692A31037E006A3380 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Extention;
+			productName = Extention;
+			productReference = 3230826B2A31037E006A3380 /* Extention.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -100,6 +190,9 @@
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					323082542A31032D006A3380 = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+					3230826A2A31037E006A3380 = {
 						CreatedOnToolsVersion = 14.3.1;
 					};
 				};
@@ -118,6 +211,7 @@
 			projectRoot = "";
 			targets = (
 				323082542A31032D006A3380 /* FileExplorerIPFS */,
+				3230826A2A31037E006A3380 /* Extention */,
 			);
 		};
 /* End PBXProject section */
@@ -132,6 +226,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		323082692A31037E006A3380 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -140,11 +241,31 @@
 			buildActionMask = 2147483647;
 			files = (
 				3230825B2A31032D006A3380 /* ContentView.swift in Sources */,
+				323082802A3103CB006A3380 /* FileConnection.swift in Sources */,
 				323082592A31032D006A3380 /* FileExplorerIPFSApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		323082672A31037E006A3380 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				323082712A31037E006A3380 /* FileProviderExtension.swift in Sources */,
+				323082732A31037E006A3380 /* FileProviderItem.swift in Sources */,
+				323082752A31037E006A3380 /* FileProviderEnumerator.swift in Sources */,
+				323082812A3103CB006A3380 /* FileConnection.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		323082792A31037E006A3380 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3230826A2A31037E006A3380 /* Extention */;
+			targetProxy = 323082782A31037E006A3380 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		323082622A31032E006A3380 /* Debug */ = {
@@ -263,6 +384,7 @@
 		323082652A31032E006A3380 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = FileExplorerIPFS/FileExplorerIPFS.entitlements;
@@ -279,6 +401,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = cylogic.FileExplorerIPFS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -290,6 +413,7 @@
 		323082662A31032E006A3380 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = FileExplorerIPFS/FileExplorerIPFS.entitlements;
@@ -306,9 +430,62 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = cylogic.FileExplorerIPFS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		3230827C2A31037E006A3380 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Extention/Extention.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F48MGZ86Q2;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Extention/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Extention;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = cylogic.FileExplorerIPFS.Extention;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		3230827D2A31037E006A3380 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Extention/Extention.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F48MGZ86Q2;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Extention/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Extention;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = cylogic.FileExplorerIPFS.Extention;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -331,6 +508,15 @@
 			buildConfigurations = (
 				323082652A31032E006A3380 /* Debug */,
 				323082662A31032E006A3380 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3230827B2A31037E006A3380 /* Build configuration list for PBXNativeTarget "Extention" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3230827C2A31037E006A3380 /* Debug */,
+				3230827D2A31037E006A3380 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

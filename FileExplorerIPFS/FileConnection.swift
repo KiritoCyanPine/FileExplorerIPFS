@@ -10,15 +10,16 @@ import FileProvider
 import os
 
 class ProviderConnection{
+    var  fileProviderManager: NSFileProviderManager
     let domain:NSFileProviderDomain
     
     init(domain: NSFileProviderDomain) {
         self.domain = domain
+        fileProviderManager = NSFileProviderManager(for: self.domain)!
     }
     
     func resume() {
         let fileManager = FileManager.default
-        let fileProviderManager = NSFileProviderManager(for: domain)!
 
         fileProviderManager.getUserVisibleURL(for: NSFileProviderItemIdentifier.rootContainer) { url, error in
             guard error == nil else {
@@ -30,7 +31,13 @@ class ProviderConnection{
                 return
             }
             
-            os_log("resume was called---")
+            do{
+                try fileManager.setAttributes([.posixPermissions: 0o444],ofItemAtPath: url.absoluteString)
+            } catch {
+                print("Error : ", error)
+            }
+            
+            os_log("resume was called--- 2")
 
             fileManager.getFileProviderServicesForItem(at: url) { list, error in
                 guard let services = list else {
@@ -62,4 +69,13 @@ class ProviderConnection{
         }
     }
     
+    func evictionFolder() {
+        Task {
+            do {
+                try await fileProviderManager.evictItem(identifier: NSFileProviderItemIdentifier("ipfsFolder"))
+            }catch {
+                print(error)
+            }
+        }
+    }
 }

@@ -45,6 +45,10 @@ class FileProvide {
         providerConnection = ProviderConnection(domain: domain)
         providerConnection.resume()
     }
+    
+    func evictRoot() {
+        ProviderConnection(domain: domain).evictionFolder()
+    }
 }
 
 

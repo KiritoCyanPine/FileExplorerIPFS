@@ -6,6 +6,8 @@
 //
 
 import FileProvider
+import ipfs_api
+import os
 
 class FileProviderEnumerator: NSObject, NSFileProviderEnumerator {
     
@@ -34,8 +36,53 @@ class FileProviderEnumerator: NSObject, NSFileProviderEnumerator {
          - inform the observer about the items returned by the server (possibly multiple times)
          - inform the observer that you are finished with this page
          */
-        observer.didEnumerate([FileProviderItem(identifier: NSFileProviderItemIdentifier("a file"))])
-        observer.finishEnumerating(upTo: nil)
+        
+        
+        Task{
+            do {
+                var filepath:String = "/"
+                var items: [Item] = []
+                
+                if enumeratedItemIdentifier != .rootContainer && enumeratedItemIdentifier != .trashContainer && enumeratedItemIdentifier != .workingSet{
+                    filepath += enumeratedItemIdentifier.rawValue
+                }
+                
+                let fileslist = try await FilesList(filepath: filepath)
+                
+                guard let list = fileslist.Entries else {
+                    observer.didEnumerate(items)
+                    observer.finishEnumerating(upTo: nil)
+                    return
+                }
+                
+                print(list)
+                
+                if enumeratedItemIdentifier != .rootContainer && enumeratedItemIdentifier != .trashContainer && enumeratedItemIdentifier != .workingSet{
+                    
+#warning("properly format this")
+                    list.forEach { element in
+                        var e = element
+                        var fpath = enumeratedItemIdentifier.rawValue+element.Name
+                        e.Name = enumeratedItemIdentifier.rawValue+"/"+element.Name
+                        items.append(Item(fileItem: e, parentItem: enumeratedItemIdentifier, filePath: fpath))
+                    }
+                } else {
+                    list.forEach { element in
+                        var fpath = enumeratedItemIdentifier.rawValue+element.Name
+                        items.append(Item(fileItem: element, parentItem: enumeratedItemIdentifier, filePath: fpath))
+                    }
+                }
+                
+                observer.didEnumerate(items)
+                observer.finishEnumerating(upTo: nil)
+                    
+            } catch {
+                print(error)
+            }
+        }
+        
+//        observer.didEnumerate([Item(identifier: NSFileProviderItemIdentifier("a file")),Item(identifier: NSFileProviderItemIdentifier("11 b file")),Item(identifier: NSFileProviderItemIdentifier("22 c file.csv"))])
+//        observer.finishEnumerating(upTo: nil)
     }
     
     func enumerateChanges(for observer: NSFileProviderChangeObserver, from anchor: NSFileProviderSyncAnchor) {

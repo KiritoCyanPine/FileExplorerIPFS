@@ -69,12 +69,13 @@ class ProviderConnection{
         }
     }
     
-    func evictionFolder() {
+    func evictionFolder(filepath:String) {
         Task {
             do {
-                try await fileProviderManager.evictItem(identifier: NSFileProviderItemIdentifier("ipfsFolder"))
+                print("evicting Item", filepath)
+                try await fileProviderManager.evictItem(identifier: NSFileProviderItemIdentifier(filepath))
             }catch {
-                print(error)
+                print ("Error: ",error)
             }
         }
     }

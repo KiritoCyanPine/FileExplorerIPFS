@@ -7,21 +7,10 @@
 
 import Foundation
 
-internal let defaultValues: [String: Any] = ["responseDelay": 0.0,
-                                             "errorRate": 0.0,
-                                             "batchSize": 200,
-                                             "accountQuota": 0,
-                                             "ignoreAuthentication": true,
-                                             "skipThumbnailUpload": false,
-                                             "contentStoredInline": false,
-                                             "ignoreContentVersionOnDeletion": false,
-                                             "trashDisabled": false,
-                                             "syncChildrenBeforeParentMove": true,
-                                             "uploadNewFilesInChunks": true,
-                                             "supportBRM": true,
-                                             "minFileSizeForBRM": 256,
-                                             "unalignedBRMResponse": false,
-                                             "BRMChunkSizeMB": 5]
+internal let defaultValues: [String: Any] = ["KBSize":1024,
+                                             "MBSize":1_048_576,
+                                             "ByteSize": MemoryLayout<UInt8>.size,
+                                             "DefaultChunkSize":8*4_194_304,]
 
 public extension UserDefaults {
     static var sharedContainerDefaults: UserDefaults {
@@ -32,17 +21,7 @@ public extension UserDefaults {
         return defaults
     }
     
-    var minSizeFileForBRM: Int {
-        return integer(forKey: "minFileSizeForBRM")
-    }
-    
-    var isUnalignedBRMResponse: Bool {
-        let ret = bool(forKey: "unalignedBRMResponse")
-        set(false, forKey: "unalignedBRMResponse")
-        return ret
-    }
-    
-    var BRMChunkSize: Int {
-        return integer(forKey: "BRMChunkSizeMB") * 1_048_576 // Convert into bytes.
+    var defaultChunkSize: Int {
+        return integer(forKey: "DefaultChunkSize")
     }
 }

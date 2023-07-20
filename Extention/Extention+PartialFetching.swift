@@ -25,12 +25,6 @@ extension FileProviderExtension : NSFileProviderPartialContentFetching {
             guard error == nil  else {
                 return
             }
-            
-            print("Partial : item ", item!)
-            
-            let extent = self.adjustRequestedRange(requestedRange: requestedRange, alignment: alignment, fileSize: item?.documentSize as! Int)
-            
-            print(extent)
 
             Task{
                 do {

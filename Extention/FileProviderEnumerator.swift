@@ -13,16 +13,18 @@ class FileProviderEnumerator: NSObject, NSFileProviderEnumerator {
     
     private let enumeratedItemIdentifier: NSFileProviderItemIdentifier
     private let anchor = NSFileProviderSyncAnchor("an anchor".data(using: .utf8)!)
+    private var retrys: UInt8 = 0
     
     init(enumeratedItemIdentifier: NSFileProviderItemIdentifier) {
         self.enumeratedItemIdentifier = enumeratedItemIdentifier
         super.init()
     }
+    
 
+#warning("implement this to update invalidation of enumerated changes")
     func invalidate() {
-        // TODO: perform invalidation of server connection if necessary
     }
-
+    
     func enumerateItems(for observer: NSFileProviderEnumerationObserver, startingAt page: NSFileProviderPage) {
         /* TODO:
          - inspect the page to determine whether this is an initial or a follow-up request
@@ -40,11 +42,15 @@ class FileProviderEnumerator: NSObject, NSFileProviderEnumerator {
         
         Task{
             do {
-                var filepath:String = "/"
+                var filepath:String = ""
                 var items: [Item] = []
                 
                 if enumeratedItemIdentifier != .rootContainer && enumeratedItemIdentifier != .trashContainer && enumeratedItemIdentifier != .workingSet{
-                    filepath += enumeratedItemIdentifier.rawValue
+                    filepath = enumeratedItemIdentifier.rawValue
+                }
+                
+                if !filepath.hasPrefix("/") {
+                    filepath = "/"+filepath
                 }
                 
                 let fileslist = try await FilesList(filepath: filepath)
@@ -55,36 +61,34 @@ class FileProviderEnumerator: NSObject, NSFileProviderEnumerator {
                     return
                 }
                 
-                print(list)
+                var eem = enumeratedItemIdentifier
                 
                 if enumeratedItemIdentifier != .rootContainer && enumeratedItemIdentifier != .trashContainer && enumeratedItemIdentifier != .workingSet{
                     
 #warning("properly format this")
                     list.forEach { element in
                         var e = element
-                        var fpath = enumeratedItemIdentifier.rawValue+element.Name
-                        e.Name = enumeratedItemIdentifier.rawValue+"/"+element.Name
+                        let fpath = enumeratedItemIdentifier.rawValue+"/"+element.Name
+                        e.Name = "/"+enumeratedItemIdentifier.rawValue+"/"+element.Name
                         items.append(Item(fileItem: e, parentItem: enumeratedItemIdentifier, filePath: fpath))
                     }
                 } else {
                     list.forEach { element in
-                        var fpath = enumeratedItemIdentifier.rawValue+element.Name
+                        let fpath = enumeratedItemIdentifier.rawValue+"/"+element.Name
                         items.append(Item(fileItem: element, parentItem: enumeratedItemIdentifier, filePath: fpath))
                     }
                 }
                 
                 observer.didEnumerate(items)
                 observer.finishEnumerating(upTo: nil)
-                    
+                
             } catch {
                 print(error)
             }
         }
-        
-//        observer.didEnumerate([Item(identifier: NSFileProviderItemIdentifier("a file")),Item(identifier: NSFileProviderItemIdentifier("11 b file")),Item(identifier: NSFileProviderItemIdentifier("22 c file.csv"))])
-//        observer.finishEnumerating(upTo: nil)
     }
     
+#warning("implement this to update the finder for live updates.")
     func enumerateChanges(for observer: NSFileProviderChangeObserver, from anchor: NSFileProviderSyncAnchor) {
         /* TODO:
          - query the server for updates since the passed-in sync anchor
@@ -97,7 +101,7 @@ class FileProviderEnumerator: NSObject, NSFileProviderEnumerator {
          */
         observer.finishEnumeratingChanges(upTo: anchor, moreComing: false)
     }
-
+    
     func currentSyncAnchor(completionHandler: @escaping (NSFileProviderSyncAnchor?) -> Void) {
         completionHandler(anchor)
     }

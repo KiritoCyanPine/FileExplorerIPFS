@@ -62,7 +62,18 @@ class Item: NSObject, NSFileProviderItemProtocol {
     }
     
     var capabilities: NSFileProviderItemCapabilities {
-        return [.allowsReading, .allowsWriting, .allowsRenaming, .allowsReparenting, .allowsTrashing, .allowsDeleting]
+        let result:NSFileProviderItemCapabilities = [
+            .allowsReading,
+            .allowsEvicting,
+            .allowsWriting,
+            .allowsRenaming,
+            .allowsReparenting,
+            .allowsAddingSubItems,
+            .allowsDeleting,
+            .allowsContentEnumerating,
+        ]
+        
+        return result
     }
     
     var itemVersion: NSFileProviderItemVersion {
@@ -82,17 +93,13 @@ class Item: NSObject, NSFileProviderItemProtocol {
 #endif
     
     var filename: String {
-        var name = identifier.rawValue
+        let name = identifier.rawValue
         guard let fname = name.components(separatedBy: "/").last else {
             return identifier.rawValue
         }
         
         return fname
     }
-    
-//    var contentType: UTType {
-//        return identifier == NSFileProviderItemIdentifier.rootContainer ? .folder : .plainText
-//    }
     
     var contentType: UTType {
         if identifier == NSFileProviderItemIdentifier.rootContainer || fileDetails?.Type == 1 {
@@ -115,5 +122,4 @@ class Item: NSObject, NSFileProviderItemProtocol {
     var contentModificationDate: Date? {
         return NSDate() as Date
     }
-    
 }

@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var filepath: String = ""
+    
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -19,7 +22,10 @@ struct ContentView: View {
             
             Button("Unmount Cydrive", action: endServe)
             
-            Button("Evict Items", action: evict)
+            TextField("File path of the file...", text: $filepath)
+            
+            Button("Evict Items", action:{ evict(filepath: filepath)
+            })
         }
         .padding()
         
@@ -46,8 +52,8 @@ func endServe() {
     var _: () = FileProvide().endCydrive()
 }
 
-func evict() {
-    var _ = FileProvide().evictRoot()
+func evict(filepath:String) {
+    var _ = FileProvide().evictRoot(filepath: filepath)
 }
 
 struct ContentView_Previews: PreviewProvider {

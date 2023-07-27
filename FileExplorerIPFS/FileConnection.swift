@@ -79,4 +79,24 @@ class ProviderConnection{
             }
         }
     }
+    
+    func refreshFolder(filepath:String) {
+            do {
+                print("evicting Item", filepath)
+//                try await fileProviderManager.reimportItems(below: NSFileProviderItemIdentifier(filepath))
+                fileProviderManager.signalEnumerator(for: .workingSet,completionHandler: { ourError in
+                    if let ourError = ourError {
+                              print("notifyCallback: mount / unmount failed re-enumeration: \(ourError)")
+                           } else {
+                              print("notifyCallback: mount / unmount signalled re-enumeration; pending")
+                           }
+                })
+                
+                print("maybe it was Evicted")
+            }catch {
+                print ("Error: ",error)
+            }
+        
+    }
+
 }

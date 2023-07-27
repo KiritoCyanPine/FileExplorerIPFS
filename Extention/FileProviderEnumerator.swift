@@ -49,9 +49,7 @@ class FileProviderEnumerator: NSObject, NSFileProviderEnumerator {
                     filepath = enumeratedItemIdentifier.rawValue
                 }
                 
-                if !filepath.hasPrefix("/") {
-                    filepath = "/"+filepath
-                }
+                filepath = URL.toIPFSPath(path: filepath)
                 
                 let fileslist = try await FilesList(filepath: filepath)
                 
@@ -61,20 +59,21 @@ class FileProviderEnumerator: NSObject, NSFileProviderEnumerator {
                     return
                 }
                 
-                var eem = enumeratedItemIdentifier
-                
                 if enumeratedItemIdentifier != .rootContainer && enumeratedItemIdentifier != .trashContainer && enumeratedItemIdentifier != .workingSet{
                     
 #warning("properly format this")
                     list.forEach { element in
                         var e = element
-                        let fpath = enumeratedItemIdentifier.rawValue+"/"+element.Name
-                        e.Name = "/"+enumeratedItemIdentifier.rawValue+"/"+element.Name
+                        
+                        let fpath = URL.toItemIdentifier(path: enumeratedItemIdentifier.rawValue+"/"+element.Name)
+                        e.Name = URL.toItemIdentifier(path: enumeratedItemIdentifier.rawValue+"/"+element.Name)
+                        
                         items.append(Item(fileItem: e, parentItem: enumeratedItemIdentifier, filePath: fpath))
                     }
                 } else {
                     list.forEach { element in
-                        let fpath = enumeratedItemIdentifier.rawValue+"/"+element.Name
+                        
+                        let fpath = URL.toItemIdentifier(path: enumeratedItemIdentifier.rawValue+"/"+element.Name)
                         items.append(Item(fileItem: element, parentItem: enumeratedItemIdentifier, filePath: fpath))
                     }
                 }
@@ -99,6 +98,44 @@ class FileProviderEnumerator: NSObject, NSFileProviderEnumerator {
          - inform the observer about item deletions and updates (modifications + insertions)
          - inform the observer when you have finished enumerating up to a subsequent sync anchor
          */
+        
+        //        let filepath = URL.toIPFSPath(path: enumeratedItemIdentifier.rawValue)
+        //        var items: [Item] = []
+        //
+        //        let enumeratedItemIdentifier = self.enumeratedItemIdentifier
+        //        do{
+        //            print(1)
+        //            try FilesList(filepath: filepath) { lsfiles, errOptional in
+        //                guard let fileslist = lsfiles else {
+        //                    return
+        //                }
+        //
+        //                print(2)
+        //                guard let list = fileslist.Entries else {
+        //                    print(3)
+        //                    observer.didUpdate(items)
+        //                    observer.finishEnumeratingChanges(upTo: anchor, moreComing: false)
+        //                    return
+        //                }
+        //                print(4)
+        //                list.forEach { element in
+        //                    var e = element
+        //
+        //                    let fpath = URL.toItemIdentifier(path: enumeratedItemIdentifier.rawValue+"/"+element.Name)
+        //                    e.Name = URL.toItemIdentifier(path: enumeratedItemIdentifier.rawValue+"/"+element.Name)
+        //
+        //                    items.append(Item(fileItem: e, parentItem: enumeratedItemIdentifier, filePath: fpath))
+        //                }
+        //
+        //                observer.didUpdate(items)
+        //                observer.finishEnumeratingChanges(upTo: anchor, moreComing: false)
+        //
+        //            }
+        //
+        //        } catch {
+        //            print(error)
+        //        }
+        
         observer.finishEnumeratingChanges(upTo: anchor, moreComing: false)
     }
     

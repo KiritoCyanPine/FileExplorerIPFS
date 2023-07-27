@@ -10,7 +10,8 @@ import Foundation
 internal let defaultValues: [String: Any] = ["KBSize":1024,
                                              "MBSize":1_048_576,
                                              "ByteSize": MemoryLayout<UInt8>.size,
-                                             "DefaultChunkSize":8*4_194_304,]
+                                             "DefaultChunkSize":4_194_304,]
+//                                             "DefaultChunkSize":8,]
 
 public extension UserDefaults {
     static var sharedContainerDefaults: UserDefaults {

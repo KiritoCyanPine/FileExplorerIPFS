@@ -24,8 +24,10 @@ struct ContentView: View {
             
             TextField("File path of the file...", text: $filepath)
             
-            Button("Evict Items", action:{ evict(filepath: filepath)
-            })
+            HStack{
+                Button("Evict Items", action:{ evict(filepath: filepath)})
+                Button("Refresh Dir", action:{ refreshScreen(identifire:filepath)})
+            }
         }
         .padding()
         
@@ -54,6 +56,10 @@ func endServe() {
 
 func evict(filepath:String) {
     var _ = FileProvide().evictRoot(filepath: filepath)
+}
+
+func refreshScreen(identifire:String) {
+    var _ = FileProvide().RefreshRoot(filepath: identifire)
 }
 
 struct ContentView_Previews: PreviewProvider {

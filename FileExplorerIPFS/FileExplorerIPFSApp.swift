@@ -50,6 +50,11 @@ class FileProvide {
         print("CALLINGGG~~~ ", filepath)
         ProviderConnection(domain: domain).evictionFolder(filepath: filepath)
     }
+    
+    func RefreshRoot(filepath:String) {
+        print("CALLINGGG~~~ ", filepath)
+        ProviderConnection(domain: domain).refreshFolder(filepath: filepath)
+    }
 }
 
 

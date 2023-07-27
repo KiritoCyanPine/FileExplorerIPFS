@@ -16,6 +16,8 @@ class ChunkReader {
     private var reader:CFileStreamReader? = nil
     private var fileSize:Int? = nil
     
+    public var progress:Progress?
+    
     private let logger = Logger(subsystem: "com.cylogic.FileExplorerIPFS", category: "Chunker")
     
     init(chunksize:Int = UserDefaults.sharedContainerDefaults.defaultChunkSize) {
@@ -41,6 +43,8 @@ class ChunkReader {
         self.fileSize = size
         
         self.TotalChunks = Int(ceil(Double(size/ChunkSize)))
+        
+        self.progress = Progress(totalUnitCount: Int64(ceil(Double(size/ChunkSize))+1))
         logger.debug("started reading file")
     }
     
@@ -74,7 +78,8 @@ class ChunkReader {
             throw ErrorChunkReader.InvalidFileAccessOperation("getNext(): nil data")
         }
         
-        let range = try self.progress()
+        var range = try self.range()
+        range.length = data.count
         
         return Chunk(data: data, range: range)
     }
@@ -91,7 +96,7 @@ class ChunkReader {
         logger.debug("closed chunk reader")
     }
     
-    private func progress() throws -> NSRange {
+    private func range() throws -> NSRange {
         let location = (self.CurrentChunk*self.ChunkSize)
         self.CurrentChunk+=1
         
@@ -117,4 +122,5 @@ struct Chunk{
 
 enum ErrorChunkReader:Error {
     case InvalidFileAccessOperation(String)
+    case InvalidProgress
 }

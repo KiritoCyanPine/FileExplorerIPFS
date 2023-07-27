@@ -116,10 +116,36 @@ class Item: NSObject, NSFileProviderItemProtocol {
     }
     
     var creationDate: Date? {
-        return NSDate() as Date
+        var dateComponents = DateComponents()
+        dateComponents.year = 2023
+        dateComponents.month = 7
+        dateComponents.day = 25
+
+        // Optionally, you can set time components as well
+        dateComponents.hour = 12
+        dateComponents.minute = 30
+        dateComponents.second = 0
+        let calendar = Calendar.current
+
+        // Create the date from the date components
+        return calendar.date(from: dateComponents)
     }
     
     var contentModificationDate: Date? {
-        return NSDate() as Date
+        // Set a date using DateComponents
+        var dateComponents = DateComponents()
+        dateComponents.year = 2023
+        dateComponents.month = 7
+        dateComponents.day = 25
+
+        // Optionally, you can set time components as well
+        dateComponents.hour = 12
+        dateComponents.minute = 30
+        dateComponents.second = 0
+        let calendar = Calendar.current
+
+        // Create the date from the date components
+        return calendar.date(from: dateComponents)
+//        return NSDate() as Date
     }
 }

@@ -45,7 +45,6 @@ class FileProviderExtension: NSObject, NSFileProviderReplicatedExtension {
     
     func item(for identifier: NSFileProviderItemIdentifier, request: NSFileProviderRequest, completionHandler: @escaping (NSFileProviderItem?, Error?) -> Void) -> Progress {
         Task {
-            
             if identifier == .rootContainer || identifier == .trashContainer || identifier == .workingSet {
                 completionHandler(Item(identifier: identifier ), nil)
                 return
@@ -56,22 +55,11 @@ class FileProviderExtension: NSObject, NSFileProviderReplicatedExtension {
                 return
             }
             
-            var fpath = "/"
-            fpath += identifier.rawValue
+            let fpath = URL.toIPFSPath(path: identifier.rawValue)
             
-#warning("try to see if you can remove files Stat")
-            let Filestat = try await FilesStat(filepath: fpath)
+            let ipfsItem = try await getIPFSFileDetails(inpath: fpath)
             
-            let file = File(
-                Name: identifier.rawValue,
-                Hash: Filestat.Hash,
-                Size: Filestat.Size,
-                type: Filestat.`Type` == "directory" ? 1:0
-            )
-            
-            let parentIdentifier = self.getParentIdentifier(of: identifier.rawValue)
-            
-            completionHandler(Item(fileItem: file,parentItem: parentIdentifier), nil)
+            completionHandler(ipfsItem, nil)
             return
         }
         
@@ -80,38 +68,31 @@ class FileProviderExtension: NSObject, NSFileProviderReplicatedExtension {
     
 #warning("update fetch contents to open the file directly if possible")
     func fetchContents(for itemIdentifier: NSFileProviderItemIdentifier, version requestedVersion: NSFileProviderItemVersion?, request: NSFileProviderRequest, completionHandler: @escaping (URL?, NSFileProviderItem?, Error?) -> Void) -> Progress {
+
+        let filepath = URL.toIPFSPath(path: "/"+itemIdentifier.rawValue)
+        let dataURL = self.makeTemporaryURL("fetchedContents")
         
-        var progress = Progress()
-        
-        var _ =  self.item(for: itemIdentifier, request: request) { item, err in
-            
-            do {
-                let filepath = "/"+(item?.itemIdentifier.rawValue)!
-                let dataURL = self.makeTemporaryURL("fetchedContents")
+        do {
+            return try FilesReadDownload(filepath: filepath, file: dataURL) { err in
+                if let error = err {
+                    self.logger.error("❌ Error In FetchContents : FilesReadDownload,\(error)")
+                }
                 
-#warning("use progress from this Downloader if possible..")
-                progress = try FilesReadDownload(filepath: filepath, file: dataURL) { err in
-                    if let error = err {
-                        self.logger.error("❌ Error In FetchContents : FilesReadDownload,\(error)")
-                    }
-                    
+                var _ = self.item(for: itemIdentifier, request: request) { itemOptional, errorOptional in
                     defer {
-                        if let item = item {
+                        if let item = itemOptional {
                             self.evictItem(Item: item)
                         }
                     }
                     
-                    completionHandler(dataURL, item, nil)
+                    completionHandler(dataURL, itemOptional, nil)
                 }
-                
-            } catch let error {
-                self.logger.error("❌ Error In FetchContents : , \(error)")
-                completionHandler(nil, item, error)
             }
-            
+        } catch {
+            self.logger.error("❌ Error In FetchContents : , \(error)")
+            completionHandler(nil, nil, NSError.fileProviderErrorForNonExistentItem(withIdentifier: itemIdentifier))
+            return Progress()
         }
-        
-        return progress
     }
     
     func createItem(basedOn itemTemplate: NSFileProviderItem, fields: NSFileProviderItemFields, contents url: URL?, options: NSFileProviderCreateItemOptions = [], request: NSFileProviderRequest, completionHandler: @escaping (NSFileProviderItem?, NSFileProviderItemFields, Bool, Error?) -> Void) -> Progress {
@@ -128,25 +109,22 @@ class FileProviderExtension: NSObject, NSFileProviderReplicatedExtension {
             filepath = "/"+itemTemplate.filename
         } else {
             filepath = itemTemplate.parentItemIdentifier.rawValue+"/"+itemTemplate.filename
-            
-            if !filepath.hasPrefix("/") {
-                filepath = "/"+filepath
-            }
         }
         
-        let fpath = filepath
+        let fpath = URL.toIPFSPath(path: filepath)
         
 #warning("createItem(), Properly handle creation of folders.")
         switch cType{
         case .folder:
             Task{
                 do {
-                    
                     try await FilesMkDir(filepath: fpath)
                     
-                    let folder = File(Name: fpath, Hash: "", Size: 0, type: 1)
+                    let itemPath = URL.toItemIdentifier(path: fpath)
                     
-                    let parentIdentifier = getParentIdentifier(of: fpath)
+                    let folder = File(Name: itemPath, Hash: "", Size: 0, type: 1)
+                    
+                    let parentIdentifier = getParentIdentifier(of: itemPath)
                     
                     let item = Item(fileItem: folder,parentItem: parentIdentifier)
                     
@@ -159,34 +137,25 @@ class FileProviderExtension: NSObject, NSFileProviderReplicatedExtension {
             }
         default:
 #warning("createItem(), implement for creation of files")
-            Task {
-                do{
-                    try await self.WriteToIPFS(filePath: fpath, url: url)
-                    
-                    print("Creating File ", fpath)
-                    
-                    let filestat = try await FilesStat(filepath: fpath)
-                    
-                    let file = File(
-                        Name: fpath,
-                        Hash: filestat.Hash,
-                        Size: filestat.Size,
-                        type: filestat.`Type` == "directory" ? 1:0
-                    )
-                    
-                    let parentIdentifier = self.getParentIdentifier(of: fpath)
-                    
-                    let newitem = Item(fileItem: file, parentItem: parentIdentifier)
-                    
-                    defer {
-                            self.evictItem(Item: newitem)
+            do{
+                let size = try FileManager.default.attributesOfItem(atPath: url!.path)[.size] as? UInt64 ?? UInt64(0)
+                
+                let createProgress = try self.WriteToIPFSWithProgress(filePath: fpath, url: url,completion: { errorOptional in
+                    if let error = errorOptional {
+                        self.logger.error("❌ [createitem] Files stat failed with error \(error) for path \(fpath)")
+                        completionHandler(nil, [], false, nil)
+                        return
                     }
                     
-                    completionHandler(newitem, [], false, nil)
+                    let newitem = self.generatePlaceHolderItem(fpath: fpath, size: size)
                     
-                } catch {
-                    self.logger.error("❌ Error In CreateItem <DEFAULT>: , \(error)")
-                }
+                    completionHandler(newitem, [], false, nil)
+                    self.evictItem(Item: newitem)
+                })
+                
+                return createProgress
+            } catch {
+                self.logger.error("❌ Error In CreateItem <DEFAULT>: , \(error)")
             }
         }
         
@@ -201,15 +170,127 @@ class FileProviderExtension: NSObject, NSFileProviderReplicatedExtension {
     func modifyItem(_ item: NSFileProviderItem, baseVersion version: NSFileProviderItemVersion, changedFields: NSFileProviderItemFields, contents newContents: URL?, options: NSFileProviderModifyItemOptions = [], request: NSFileProviderRequest, completionHandler: @escaping (NSFileProviderItem?, NSFileProviderItemFields, Bool, Error?) -> Void) -> Progress {
         // TODO: an item was modified on disk, process the item's modification
         
-        completionHandler(item, [], false, nil)
-        return Progress()
+        return self.item(for: item.itemIdentifier, request: request) { itemOptional, errorOptional in
+            guard let prevItem = itemOptional else {
+                return
+            }
+            
+            if changedFields.contains(.filename) || changedFields.contains(.parentItemIdentifier){
+                // TODO: implement files move for ``RENAME``
+                
+                var tempsrc = prevItem.itemIdentifier.rawValue
+                var tempdst = item.parentItemIdentifier.rawValue + "/" + item.filename
+                
+                if item.parentItemIdentifier == .rootContainer{
+                    tempsrc = prevItem.itemIdentifier.rawValue
+                    tempdst = item.filename
+                }
+                
+                let src = URL.toIPFSPath(path: tempsrc)
+                let dst = URL.toIPFSPath(path: tempdst)
+                
+                Task{
+                    do {
+                        try await FilesMv(src: src, dst: dst) { errorOptional in
+                            if let err = errorOptional {
+                                self.logger.error("❌ Error In FilesMV for file src = \(src) :: dst = \(dst) , due to error = \(err)")
+                                completionHandler(nil,[],false,err)
+                                return
+                            }
+                        }
+                        
+                        let newitem = try await self.getIPFSFileDetails(inpath: dst)
+                        
+                        defer {
+                                self.evictItem(Item: newitem)
+                        }
+                        
+                        completionHandler(newitem, [], false, nil)
+                    } catch {
+                        self.logger.error("❌ Error In ReNaming  : , \(error)")
+                        completionHandler(prevItem, [], false, nil)
+                    }
+                }
+                
+                return
+            }
+            
+            if changedFields.contains(.contents) {
+                // TODO: Upload the new file into the repo for ``EDIT/CONTENT CHANGE``
+                var filepath: String
+                
+                if item.parentItemIdentifier == .rootContainer {
+                    filepath = item.filename
+                } else {
+                    filepath = item.parentItemIdentifier.rawValue+"/"+item.filename
+                }
+                
+                filepath = URL.toIPFSPath(path: filepath)
+                
+                guard let url = newContents else {
+                    return
+                }
+                
+                let fpath = filepath
+                
+                do{
+                    var _ = try self.WriteToIPFSWithProgress(filePath: fpath, url: url, enableTruncate: true) { errorOptional in
+                        if let error = errorOptional {
+                            self.logger.error("❌ [createitem] Files stat failed with error \(error) for path \(fpath)")
+                            return
+                        }
+                    }
+                    
+                    Task{
+                        let newitem = try await  self.getIPFSFileDetails(inpath: fpath)
+                        defer { self.evictItem(Item: newitem) }
+                        
+                        completionHandler(newitem, [], false, nil)
+                    }
+                    
+                } catch {
+                    self.logger.error("❌ Error In CreateItem <DEFAULT>: , \(error)")
+                    completionHandler(prevItem, [], false, nil)
+                }
+                
+                return
+            }
+            
+            completionHandler(prevItem, [], false, nil)
+        }
     }
     
     func deleteItem(identifier: NSFileProviderItemIdentifier, baseVersion version: NSFileProviderItemVersion, options: NSFileProviderDeleteItemOptions = [], request: NSFileProviderRequest, completionHandler: @escaping (Error?) -> Void) -> Progress {
         // TODO: an item was deleted on disk, process the item's deletion
         
-        completionHandler(NSError(domain: NSCocoaErrorDomain, code: NSFeatureUnsupportedError, userInfo:[:]))
-        return Progress()
+        return self.item(for: identifier, request: request) { itemOptional, errorOptional in
+            if let error = errorOptional {
+                completionHandler(error)
+                return
+            }
+            
+            guard let item = itemOptional else {
+                completionHandler(ExtentionError.InvalidFileProviderItem)
+                return
+            }
+            
+            let fPath = URL.toIPFSPath(path: item.itemIdentifier.rawValue)
+            
+            do {
+                try FilesRm(ipfspath: fPath) { errorOptional in
+                    if let error = errorOptional {
+                        completionHandler(error)
+                        return
+                    }
+                }
+                
+                completionHandler(nil)
+                
+            } catch {
+                self.logger.error("❌ Error In CreateItem <DEFAULT>: , \(error)")
+                completionHandler(error)
+            }
+        }
     }
     
     func enumerator(for containerItemIdentifier: NSFileProviderItemIdentifier, request: NSFileProviderRequest) throws -> NSFileProviderEnumerator {
@@ -222,4 +303,45 @@ class FileProviderExtension: NSObject, NSFileProviderReplicatedExtension {
         
         return FileProviderEnumerator(enumeratedItemIdentifier: container)
     }
+    
+    func updateContent(item : NSFileProviderItem, newContents:URL? ,completion: @escaping(NSFileProviderItem?, NSFileProviderItemFields, Bool, Error?) -> Void) {
+        var filepath: String
+        
+        if item.parentItemIdentifier == .rootContainer {
+            filepath = item.filename
+        } else {
+            filepath = item.parentItemIdentifier.rawValue+"/"+item.filename
+        }
+        
+        filepath = URL.toIPFSPath(path: filepath)
+        
+        guard let url = newContents else {
+            return
+        }
+        
+        let fpath = filepath
+        
+        do{
+            var _ = try self.WriteToIPFSWithProgress(filePath: fpath, url: url, enableTruncate: true) { errorOptional in
+                if let error = errorOptional {
+                    self.logger.error("❌ [createitem] Files stat failed with error \(error) for path \(fpath)")
+                    return
+                }
+            }
+            
+            Task{
+                let newitem = try await  self.getIPFSFileDetails(inpath: fpath)
+                defer { self.evictItem(Item: newitem) }
+                
+                completion(newitem, [], false, nil)
+            }
+            
+        } catch {
+            self.logger.error("❌ Error In CreateItem <DEFAULT>: , \(error)")
+            completion(nil, [], false, error)
+        }
+        
+        return
+    }
+    
 }

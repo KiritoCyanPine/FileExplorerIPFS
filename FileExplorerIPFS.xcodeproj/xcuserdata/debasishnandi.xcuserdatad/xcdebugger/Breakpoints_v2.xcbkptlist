@@ -14,8 +14,8 @@
             filePath = "Extention/FileProviderExtension.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "304"
-            endingLineNumber = "304"
+            startingLineNumber = "301"
+            endingLineNumber = "301"
             landmarkName = "enumerator(for:request:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -47,42 +47,10 @@
             filePath = "Extention/FileProviderExtension.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "169"
-            endingLineNumber = "169"
+            startingLineNumber = "167"
+            endingLineNumber = "167"
             landmarkName = "modifyItem(_:baseVersion:changedFields:contents:options:request:completionHandler:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "65C3F409-BF96-4855-B350-47632FA86832 - cdb6233e3a5dc8b7"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Extention.FileProviderExtension.modifyItem(_: __C.NSFileProviderItem, baseVersion: __C.NSFileProviderItemVersion, changedFields: __C.NSFileProviderItemFields, contents: Swift.Optional&lt;Foundation.URL&gt;, options: __C.NSFileProviderModifyItemOptions, request: __C.NSFileProviderRequest, completionHandler: (Swift.Optional&lt;__C.NSFileProviderItem&gt;, __C.NSFileProviderItemFields, Swift.Bool, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; __C.NSProgress"
-                  moduleName = "Extention"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/debasishnandi/test-projects/FileExplorerIPFS/Extention/FileProviderExtension.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "169"
-                  endingLineNumber = "169"
-                  offsetFromSymbolStart = "236">
-               </Location>
-               <Location
-                  uuid = "65C3F409-BF96-4855-B350-47632FA86832 - 7fff3d094cb086ae"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;__C.NSFileProviderItem&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Extention.FileProviderExtension.modifyItem(_: __C.NSFileProviderItem, baseVersion: __C.NSFileProviderItemVersion, changedFields: __C.NSFileProviderItemFields, contents: Swift.Optional&lt;Foundation.URL&gt;, options: __C.NSFileProviderModifyItemOptions, request: __C.NSFileProviderRequest, completionHandler: (Swift.Optional&lt;__C.NSFileProviderItem&gt;, __C.NSFileProviderItemFields, Swift.Bool, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; __C.NSProgress"
-                  moduleName = "Extention"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/debasishnandi/test-projects/FileExplorerIPFS/Extention/FileProviderExtension.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "170"
-                  endingLineNumber = "170"
-                  offsetFromSymbolStart = "644">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -120,22 +88,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "3AC7E0A4-05D1-407D-9797-BC6E21BEC103"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Extention/FileChunker.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "getNext()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "66CAC723-5FDB-4966-A619-A5284C97DD02"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -143,13 +95,13 @@
             filePath = "Extention/FileProviderExtension.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "226"
-            endingLineNumber = "226"
+            startingLineNumber = "224"
+            endingLineNumber = "224"
             landmarkName = "modifyItem(_:baseVersion:changedFields:contents:options:request:completionHandler:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "66CAC723-5FDB-4966-A619-A5284C97DD02 - 7fff3d094cbf7c5b"
+                  uuid = "66CAC723-5FDB-4966-A619-A5284C97DD02 - 7fff3d094cbf7854"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -159,42 +111,12 @@
                   urlString = "file:///Users/debasishnandi/test-projects/FileExplorerIPFS/Extention/FileProviderExtension.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "255"
-                  endingLineNumber = "255"
-                  offsetFromSymbolStart = "3176">
-               </Location>
-               <Location
-                  uuid = "66CAC723-5FDB-4966-A619-A5284C97DD02 - 7fff3d094cbf7c5b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;__C.NSFileProviderItem&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Extention.FileProviderExtension.modifyItem(_: __C.NSFileProviderItem, baseVersion: __C.NSFileProviderItemVersion, changedFields: __C.NSFileProviderItemFields, contents: Swift.Optional&lt;Foundation.URL&gt;, options: __C.NSFileProviderModifyItemOptions, request: __C.NSFileProviderRequest, completionHandler: (Swift.Optional&lt;__C.NSFileProviderItem&gt;, __C.NSFileProviderItemFields, Swift.Bool, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; __C.NSProgress"
-                  moduleName = "Extention"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/debasishnandi/test-projects/FileExplorerIPFS/Extention/FileProviderExtension.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "255"
-                  endingLineNumber = "255"
-                  offsetFromSymbolStart = "3272">
-               </Location>
-               <Location
-                  uuid = "66CAC723-5FDB-4966-A619-A5284C97DD02 - 7fff3d094cbf7996"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;__C.NSFileProviderItem&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Extention.FileProviderExtension.modifyItem(_: __C.NSFileProviderItem, baseVersion: __C.NSFileProviderItemVersion, changedFields: __C.NSFileProviderItemFields, contents: Swift.Optional&lt;Foundation.URL&gt;, options: __C.NSFileProviderModifyItemOptions, request: __C.NSFileProviderRequest, completionHandler: (Swift.Optional&lt;__C.NSFileProviderItem&gt;, __C.NSFileProviderItemFields, Swift.Bool, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; __C.NSProgress"
-                  moduleName = "Extention"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/debasishnandi/test-projects/FileExplorerIPFS/Extention/FileProviderExtension.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "226"
-                  endingLineNumber = "226"
+                  startingLineNumber = "224"
+                  endingLineNumber = "224"
                   offsetFromSymbolStart = "2760">
                </Location>
                <Location
-                  uuid = "66CAC723-5FDB-4966-A619-A5284C97DD02 - 7fff3d094cbf7996"
+                  uuid = "66CAC723-5FDB-4966-A619-A5284C97DD02 - 7fff3d094cbf7854"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -204,8 +126,8 @@
                   urlString = "file:///Users/debasishnandi/test-projects/FileExplorerIPFS/Extention/FileProviderExtension.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "226"
-                  endingLineNumber = "226"
+                  startingLineNumber = "224"
+                  endingLineNumber = "224"
                   offsetFromSymbolStart = "2864">
                </Location>
             </Locations>
@@ -317,8 +239,8 @@
             filePath = "Extention/Reader.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
             landmarkName = "open()"
             landmarkType = "7">
             <Locations>
@@ -354,69 +276,6 @@
                </Location>
                <Location
                   uuid = "DEB5F2B5-F164-4FE4-844E-27E1432D9BF1 - 50dc962d576919d3"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Extention.CFileStreamReader.open() throws -&gt; ()"
-                  moduleName = "Extention"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/debasishnandi/test-projects/FileExplorerIPFS/Extention/Reader.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "29"
-                  endingLineNumber = "29"
-                  offsetFromSymbolStart = "904">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "5F14EEC0-CFA6-4175-8C86-E926269076F8"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Extention/Reader.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
-            landmarkName = "open()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "5F14EEC0-CFA6-4175-8C86-E926269076F8 - 50dc962d57691915"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Extention.CFileStreamReader.open() throws -&gt; ()"
-                  moduleName = "Extention"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/debasishnandi/test-projects/FileExplorerIPFS/Extention/Reader.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "27"
-                  endingLineNumber = "27"
-                  offsetFromSymbolStart = "1992">
-               </Location>
-               <Location
-                  uuid = "5F14EEC0-CFA6-4175-8C86-E926269076F8 - 50dc962d57691915"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Extention.CFileStreamReader.open() throws -&gt; ()"
-                  moduleName = "Extention"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/debasishnandi/test-projects/FileExplorerIPFS/Extention/Reader.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "27"
-                  endingLineNumber = "27"
-                  offsetFromSymbolStart = "900">
-               </Location>
-               <Location
-                  uuid = "5F14EEC0-CFA6-4175-8C86-E926269076F8 - 50dc962d576919d3"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -692,8 +551,8 @@
             filePath = "Extention/FileProviderExtension.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "174"
-            endingLineNumber = "174"
+            startingLineNumber = "172"
+            endingLineNumber = "172"
             landmarkName = "modifyItem(_:baseVersion:changedFields:contents:options:request:completionHandler:)"
             landmarkType = "7">
             <Locations>
@@ -755,8 +614,8 @@
             filePath = "Extention/FileProviderExtension.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "170"
-            endingLineNumber = "170"
+            startingLineNumber = "168"
+            endingLineNumber = "168"
             landmarkName = "modifyItem(_:baseVersion:changedFields:contents:options:request:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -771,8 +630,8 @@
             filePath = "Extention/FileProviderExtension.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "190"
-            endingLineNumber = "190"
+            startingLineNumber = "188"
+            endingLineNumber = "188"
             landmarkName = "modifyItem(_:baseVersion:changedFields:contents:options:request:completionHandler:)"
             landmarkType = "7">
             <Locations>
@@ -864,8 +723,8 @@
             filePath = "Extention/FileProviderExtension.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "193"
-            endingLineNumber = "193"
+            startingLineNumber = "191"
+            endingLineNumber = "191"
             landmarkName = "modifyItem(_:baseVersion:changedFields:contents:options:request:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -880,8 +739,8 @@
             filePath = "Extention/FileProviderExtension.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "204"
-            endingLineNumber = "204"
+            startingLineNumber = "202"
+            endingLineNumber = "202"
             landmarkName = "modifyItem(_:baseVersion:changedFields:contents:options:request:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -896,8 +755,8 @@
             filePath = "Extention/FileProviderExtension.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "171"
-            endingLineNumber = "171"
+            startingLineNumber = "169"
+            endingLineNumber = "169"
             landmarkName = "modifyItem(_:baseVersion:changedFields:contents:options:request:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1360,8 +1219,8 @@
             filePath = "Extention/FileProviderExtension.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "214"
-            endingLineNumber = "214"
+            startingLineNumber = "212"
+            endingLineNumber = "212"
             landmarkName = "modifyItem(_:baseVersion:changedFields:contents:options:request:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1376,8 +1235,8 @@
             filePath = "Extention/FileProviderExtension.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "249"
-            endingLineNumber = "249"
+            startingLineNumber = "247"
+            endingLineNumber = "247"
             landmarkName = "modifyItem(_:baseVersion:changedFields:contents:options:request:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1392,8 +1251,8 @@
             filePath = "Extention/FileProviderExtension.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "255"
-            endingLineNumber = "255"
+            startingLineNumber = "253"
+            endingLineNumber = "253"
             landmarkName = "modifyItem(_:baseVersion:changedFields:contents:options:request:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1449,132 +1308,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D455A779-10E3-4186-9FA7-A68F335BEB8B"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Extention/FileProviderExtention+Support.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "178"
-            endingLineNumber = "178"
-            landmarkName = "createFileInternalWithProgress(fpath:url:completion:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "D455A779-10E3-4186-9FA7-A68F335BEB8B - 86e3ed483a0b3ac2"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Extention.FileProviderExtension.createFileInternalWithProgress(fpath: Swift.String, url: Swift.Optional&lt;Foundation.URL&gt;, completion: (Swift.Optional&lt;Extention.Item&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; __C.NSProgress"
-                  moduleName = "Extention"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/debasishnandi/test-projects/FileExplorerIPFS/Extention/FileProviderExtention+Support.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "200"
-                  endingLineNumber = "200"
-                  offsetFromSymbolStart = "2532">
-               </Location>
-               <Location
-                  uuid = "D455A779-10E3-4186-9FA7-A68F335BEB8B - 86e3ed483a0b3f18"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Extention.FileProviderExtension.createFileInternalWithProgress(fpath: Swift.String, url: Swift.Optional&lt;Foundation.URL&gt;, completion: (Swift.Optional&lt;Extention.Item&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; __C.NSProgress"
-                  moduleName = "Extention"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/debasishnandi/test-projects/FileExplorerIPFS/Extention/FileProviderExtention+Support.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "178"
-                  endingLineNumber = "178"
-                  offsetFromSymbolStart = "796">
-               </Location>
-               <Location
-                  uuid = "D455A779-10E3-4186-9FA7-A68F335BEB8B - 86e3ed483a0b3f18"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Extention.FileProviderExtension.createFileInternalWithProgress(fpath: Swift.String, url: Swift.Optional&lt;Foundation.URL&gt;, completion: (Swift.Optional&lt;Extention.Item&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; __C.NSProgress"
-                  moduleName = "Extention"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/debasishnandi/test-projects/FileExplorerIPFS/Extention/FileProviderExtention+Support.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "178"
-                  endingLineNumber = "178"
-                  offsetFromSymbolStart = "964">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D076FB75-2EFD-4BFF-A3F7-60C4D55CE756"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Extention/FileProviderExtention+Support.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "196"
-            endingLineNumber = "196"
-            landmarkName = "createFileInternalWithProgress(fpath:url:completion:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "D076FB75-2EFD-4BFF-A3F7-60C4D55CE756 - d6814ff0409e6994"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Extention.FileProviderExtension.generatePlaceHolderItem(fpath: Swift.String, size: Swift.UInt64) -&gt; Extention.Item"
-                  moduleName = "Extention"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/debasishnandi/test-projects/FileExplorerIPFS/Extention/FileProviderExtention+Support.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "218"
-                  endingLineNumber = "218"
-                  offsetFromSymbolStart = "204">
-               </Location>
-               <Location
-                  uuid = "D076FB75-2EFD-4BFF-A3F7-60C4D55CE756 - 86e3ed483a0b3946"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Extention.FileProviderExtension.createFileInternalWithProgress(fpath: Swift.String, url: Swift.Optional&lt;Foundation.URL&gt;, completion: (Swift.Optional&lt;Extention.Item&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; __C.NSProgress"
-                  moduleName = "Extention"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/debasishnandi/test-projects/FileExplorerIPFS/Extention/FileProviderExtention+Support.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "196"
-                  endingLineNumber = "196"
-                  offsetFromSymbolStart = "2096">
-               </Location>
-               <Location
-                  uuid = "D076FB75-2EFD-4BFF-A3F7-60C4D55CE756 - 86e3ed483a0b3946"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Extention.FileProviderExtension.createFileInternalWithProgress(fpath: Swift.String, url: Swift.Optional&lt;Foundation.URL&gt;, completion: (Swift.Optional&lt;Extention.Item&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; __C.NSProgress"
-                  moduleName = "Extention"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/debasishnandi/test-projects/FileExplorerIPFS/Extention/FileProviderExtention+Support.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "196"
-                  endingLineNumber = "196"
-                  offsetFromSymbolStart = "2284">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "52BBB046-9890-478B-9FB8-4DFF56269EFE"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -1614,8 +1347,8 @@
             filePath = "Extention/FileProviderExtension.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "297"
-            endingLineNumber = "297"
+            startingLineNumber = "294"
+            endingLineNumber = "294"
             landmarkName = "enumerator(for:request:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1630,8 +1363,8 @@
             filePath = "Extention/FileProviderEnumerator.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "182"
-            endingLineNumber = "182"
+            startingLineNumber = "180"
+            endingLineNumber = "180"
             landmarkName = "init()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1662,28 +1395,13 @@
             filePath = "Extention/FileProviderExtension.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "145"
-            endingLineNumber = "145"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
             landmarkName = "createItem(basedOn:fields:contents:options:request:completionHandler:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "6BEAD7C9-8A5F-4486-B3ED-554E8D54A959 - 87ae113eaab4b76c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Extention.FileProviderExtension.createItem(basedOn: __C.NSFileProviderItem, fields: __C.NSFileProviderItemFields, contents: Swift.Optional&lt;Foundation.URL&gt;, options: __C.NSFileProviderCreateItemOptions, request: __C.NSFileProviderRequest, completionHandler: (Swift.Optional&lt;__C.NSFileProviderItem&gt;, __C.NSFileProviderItemFields, Swift.Bool, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; __C.NSProgress"
-                  moduleName = "Extention"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/debasishnandi/test-projects/FileExplorerIPFS/Extention/FileProviderExtension.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "146"
-                  endingLineNumber = "146"
-                  offsetFromSymbolStart = "408">
-               </Location>
-               <Location
-                  uuid = "6BEAD7C9-8A5F-4486-B3ED-554E8D54A959 - b62a0bdfb28ebba"
+                  uuid = "6BEAD7C9-8A5F-4486-B3ED-554E8D54A959 - b62a0bdfb28ebf4"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -1693,12 +1411,12 @@
                   urlString = "file:///Users/debasishnandi/test-projects/FileExplorerIPFS/Extention/FileProviderExtension.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "145"
-                  endingLineNumber = "145"
+                  startingLineNumber = "143"
+                  endingLineNumber = "143"
                   offsetFromSymbolStart = "148">
                </Location>
                <Location
-                  uuid = "6BEAD7C9-8A5F-4486-B3ED-554E8D54A959 - 1e576ef8c2f3660b"
+                  uuid = "6BEAD7C9-8A5F-4486-B3ED-554E8D54A959 - 1e576ef8c2f36645"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -1708,12 +1426,12 @@
                   urlString = "file:///Users/debasishnandi/test-projects/FileExplorerIPFS/Extention/FileProviderExtension.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "145"
-                  endingLineNumber = "145"
+                  startingLineNumber = "143"
+                  endingLineNumber = "143"
                   offsetFromSymbolStart = "44">
                </Location>
                <Location
-                  uuid = "6BEAD7C9-8A5F-4486-B3ED-554E8D54A959 - 7123cc710362dce9"
+                  uuid = "6BEAD7C9-8A5F-4486-B3ED-554E8D54A959 - 7123cc710362dca7"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -1723,8 +1441,8 @@
                   urlString = "file:///Users/debasishnandi/test-projects/FileExplorerIPFS/Extention/FileProviderExtension.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "145"
-                  endingLineNumber = "145"
+                  startingLineNumber = "143"
+                  endingLineNumber = "143"
                   offsetFromSymbolStart = "52">
                </Location>
             </Locations>

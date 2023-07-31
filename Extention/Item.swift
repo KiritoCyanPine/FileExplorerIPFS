@@ -105,14 +105,12 @@ class Item: NSObject, NSFileProviderItemProtocol {
         if identifier == NSFileProviderItemIdentifier.rootContainer || fileDetails?.Type == 1 {
             return .folder
         }
-        else {
-            return .item
-        }
+        
+        return .item
     }
     
-    #warning("Item : properly handle File Size of Item")
     var documentSize: NSNumber?{
-        return NSNumber(value: (fileDetails?.Size) ?? 948)
+        return fileDetails?.Size as? NSNumber
     }
     
     var creationDate: Date? {
@@ -120,8 +118,6 @@ class Item: NSObject, NSFileProviderItemProtocol {
         dateComponents.year = 2023
         dateComponents.month = 7
         dateComponents.day = 25
-
-        // Optionally, you can set time components as well
         dateComponents.hour = 12
         dateComponents.minute = 30
         dateComponents.second = 0
@@ -137,8 +133,6 @@ class Item: NSObject, NSFileProviderItemProtocol {
         dateComponents.year = 2023
         dateComponents.month = 7
         dateComponents.day = 25
-
-        // Optionally, you can set time components as well
         dateComponents.hour = 12
         dateComponents.minute = 30
         dateComponents.second = 0
@@ -146,6 +140,5 @@ class Item: NSObject, NSFileProviderItemProtocol {
 
         // Create the date from the date components
         return calendar.date(from: dateComponents)
-//        return NSDate() as Date
     }
 }

@@ -28,19 +28,19 @@ func safeShell(_ command: String) throws -> String {
 
 func startIPFS() {
     let result = try? safeShell("/Users/debasishnandi/Downloads/kubo/ipfs init")
-    print(result)
+    print(result!)
     Task{
         let result2 = try? safeShell("/Users/debasishnandi/Downloads/kubo/ipfs daemon")
-        print(result2)
+        print(result2!)
     }
 }
 
 func stopIPFS() {
     let result = try? safeShell("Users/debasishnandi/Downloads/kubo/ipfs shutdown")
-    print(result)
+    print(result!)
 }
 
 func setIPFSPath() {
     let result = try? safeShell("export IPFS_PATH=/Users/debasishnandi/.ipfs")
-    print(result)
+    print(result!)
 }

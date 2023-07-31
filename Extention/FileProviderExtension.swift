@@ -132,8 +132,6 @@ class FileProviderExtension: NSObject, NSFileProviderReplicatedExtension {
             }
         default:
             do{
-                let size = try FileManager.default.attributesOfItem(atPath: url!.path)[.size] as? UInt64 ?? UInt64(0)
-                
                 let createProgress = try self.WriteToIPFSWithProgress(filePath: fpath, url: url,completion: { errorOptional in
                     if let error = errorOptional {
                         self.logger.error("❌ [createitem] Files stat failed with error \(error) for path \(fpath)")
@@ -290,7 +288,6 @@ class FileProviderExtension: NSObject, NSFileProviderReplicatedExtension {
     }
     
     func enumerator(for containerItemIdentifier: NSFileProviderItemIdentifier, request: NSFileProviderRequest) throws -> NSFileProviderEnumerator {
-        
         var container = containerItemIdentifier
         
         if container == .workingSet {
@@ -303,45 +300,4 @@ class FileProviderExtension: NSObject, NSFileProviderReplicatedExtension {
         
         return FileProviderEnumerator(enumeratedItemIdentifier: container)
     }
-    
-    func updateContent(item : NSFileProviderItem, newContents:URL? ,completion: @escaping(NSFileProviderItem?, NSFileProviderItemFields, Bool, Error?) -> Void) {
-        var filepath: String
-        
-        if item.parentItemIdentifier == .rootContainer {
-            filepath = item.filename
-        } else {
-            filepath = item.parentItemIdentifier.rawValue+"/"+item.filename
-        }
-        
-        filepath = URL.toIPFSPath(path: filepath)
-        
-        guard let url = newContents else {
-            return
-        }
-        
-        let fpath = filepath
-        
-        do{
-            var _ = try self.WriteToIPFSWithProgress(filePath: fpath, url: url, enableTruncate: true) { errorOptional in
-                if let error = errorOptional {
-                    self.logger.error("❌ [createitem] Files stat failed with error \(error) for path \(fpath)")
-                    return
-                }
-            }
-            
-            Task{
-                let newitem = try await  self.getIPFSFileDetails(inpath: fpath)
-                defer { self.evictItem(Item: newitem) }
-                
-                completion(newitem, [], false, nil)
-            }
-            
-        } catch {
-            self.logger.error("❌ Error In CreateItem <DEFAULT>: , \(error)")
-            completion(nil, [], false, error)
-        }
-        
-        return
-    }
-    
 }

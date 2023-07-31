@@ -33,7 +33,7 @@ class ChunkReader {
         self.reader = CFileStreamReader(fileURL: url)
         
         guard let readStream = reader else{
-            logger.error("reader in nil")
+            logger.error("reader is nil")
             throw ErrorChunkReader.InvalidFileAccessOperation("open(): nil readStream")
         }
         
@@ -54,14 +54,6 @@ class ChunkReader {
         }
         
         return UInt32(totalchunks)
-    }
-    
-    func totalFileSize() throws -> Int {
-        guard let fileSize = self.fileSize else {
-            throw ErrorChunkReader.InvalidFileAccessOperation("totalFileSize()")
-        }
-        
-        return fileSize
     }
     
     func getNext() throws -> Chunk? {
@@ -98,17 +90,17 @@ class ChunkReader {
     
     private func range() throws -> NSRange {
         let location = (self.CurrentChunk*self.ChunkSize)
-        self.CurrentChunk+=1
+        self.CurrentChunk += 1
         
         if TotalChunks == CurrentChunk {
+            
             guard let size = fileSize else {
-                throw ErrorChunkReader.InvalidFileAccessOperation("totalFileSize()")
+                throw ErrorChunkReader.InvalidFileAccessOperation("file size note set properly")
             }
             
             let limitChunk = size - location
             
             return NSRange(location: location, length: limitChunk)
-            
         }
         
         return NSRange(location: location, length: ChunkSize)

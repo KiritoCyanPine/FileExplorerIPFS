@@ -139,77 +139,12 @@ extension FileProviderExtension {
 
                     var _ = try await FilesWrite(filepath: filePath, data: chunk.data,range: chunk.range,truncate: truncate)
                     truncate = false
-                    self.logger.debug("[Writer] chunk processed \(index+1) to \(limit+1)")
+                    self.logger.info("[Writer] chunk processed \(index+1) to \(limit+1)")
 
                 continue
             }
             
             break
         }
-    }
-}
-
-extension FileProviderExtension {
-    
-     func createFileInternal(fpath:String,url:URL?, completion : (Item?, Error?) -> Void) async {
-        do{
-            let filePath = URL.toIPFSPath(path: fpath)
-            
-            try await self.WriteToIPFS(filePath: filePath, url: url)
-            
-            let newitem = try await  getIPFSFileDetails(inpath: filePath)
-            
-            defer {
-                    self.evictItem(Item: newitem)
-            }
-            
-            completion(newitem, nil)
-        } catch {
-            completion(nil,error)
-        }
-    }
-    
-        func createFileInternalWithProgress(fpath:String,url:URL?, completion : @escaping (Item?, Error?) -> Void) -> Progress {
-        do{
-            let filePath = URL.toIPFSPath(path: fpath)
-
-            let localPAth2 = url!.path
-            
-            let FileStatistics = try FileManager.default.attributesOfItem(atPath: localPAth2)
-            
-            let size = FileStatistics[.size] as? UInt64 ?? UInt64(0)
-            
-            let newitem = generatePlaceHolderItem(fpath: fpath, size: size)
-            
-            let prog = try self.WriteToIPFSWithProgress(filePath: filePath, url: url) { ErrorOptional in
-                if let error = ErrorOptional {
-                    self.logger.error("❌ [createitem] Files stat failed with error \(error) for path \(fpath)")
-                    completion(nil, error)
-                    return
-                }
-            }
-            
-            completion(newitem, nil)
-            
-            return prog
-        } catch {
-            completion(nil,error)
-            return Progress()
-        }
-    }
-    
-     func generatePlaceHolderItem(fpath:String, size : UInt64) -> Item {
-        let itempath = URL.toItemIdentifier(path: fpath)
-        
-        let file = File(
-            Name: itempath,
-            Hash: "",
-            Size: size,
-            type: 0
-        )
-        
-        let parentIdentifier = self.getParentIdentifier(of: itempath)
-        
-        return Item(fileItem: file, parentItem: parentIdentifier)
     }
 }

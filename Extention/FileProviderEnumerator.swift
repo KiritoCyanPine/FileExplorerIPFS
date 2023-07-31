@@ -61,7 +61,6 @@ class FileProviderEnumerator: NSObject, NSFileProviderEnumerator {
                 
                 if enumeratedItemIdentifier != .rootContainer && enumeratedItemIdentifier != .trashContainer && enumeratedItemIdentifier != .workingSet{
                     
-#warning("properly format this")
                     list.forEach { element in
                         var e = element
                         
@@ -87,7 +86,6 @@ class FileProviderEnumerator: NSObject, NSFileProviderEnumerator {
         }
     }
     
-#warning("implement this to update the finder for live updates.")
     func enumerateChanges(for observer: NSFileProviderChangeObserver, from anchor: NSFileProviderSyncAnchor) {
         /* TODO:
          - query the server for updates since the passed-in sync anchor

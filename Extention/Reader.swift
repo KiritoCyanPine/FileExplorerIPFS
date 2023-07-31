@@ -22,10 +22,6 @@ class CFileStreamReader {
     private var file: UnsafeMutablePointer<FILE>? = nil
 
     func open() throws {
-        print(fileURL)
-        print(fileURL.path)
-//        var f = fopen(fileURL.path, "r")
-//        print("->",f, errno)
         guard let f = fopen(fileURL.path, "r") else {
             print(errno)
             throw ErrorCFileReader.FilePointerInit(NSPOSIXErrorDomain,errno)

@@ -25,4 +25,16 @@ public extension UserDefaults {
     var defaultChunkSize: Int {
         return integer(forKey: "DefaultChunkSize")
     }
+    
+    var megaByteSize: Int {
+        return integer(forKey: "MBSize")
+    }
+    
+    var byteSize: Int {
+        return integer(forKey: "ByteSize")
+    }
+    
+    var kiloByteSize: Int {
+        return integer(forKey: "KBSize")
+    }
 }

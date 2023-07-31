@@ -37,9 +37,7 @@ class FileProviderExtension: NSObject, NSFileProviderReplicatedExtension {
     }
     
     
-#warning("implement FileProviderExtension invalidate() method to cleanup any resource")
     func invalidate() {
-        // TODO: cleanup any resources
     }
     
     
@@ -66,7 +64,6 @@ class FileProviderExtension: NSObject, NSFileProviderReplicatedExtension {
         return Progress()
     }
     
-#warning("update fetch contents to open the file directly if possible")
     func fetchContents(for itemIdentifier: NSFileProviderItemIdentifier, version requestedVersion: NSFileProviderItemVersion?, request: NSFileProviderRequest, completionHandler: @escaping (URL?, NSFileProviderItem?, Error?) -> Void) -> Progress {
 
         let filepath = URL.toIPFSPath(path: "/"+itemIdentifier.rawValue)
@@ -96,7 +93,6 @@ class FileProviderExtension: NSObject, NSFileProviderReplicatedExtension {
     }
     
     func createItem(basedOn itemTemplate: NSFileProviderItem, fields: NSFileProviderItemFields, contents url: URL?, options: NSFileProviderCreateItemOptions = [], request: NSFileProviderRequest, completionHandler: @escaping (NSFileProviderItem?, NSFileProviderItemFields, Bool, Error?) -> Void) -> Progress {
-        // TODO: a new item was created on disk, process the item's creation
         
         guard let cType = itemTemplate.contentType else{
             completionHandler(itemTemplate, [],false,NSFileProviderError(NSFileProviderError.Code.noSuchItem))
@@ -113,7 +109,6 @@ class FileProviderExtension: NSObject, NSFileProviderReplicatedExtension {
         
         let fpath = URL.toIPFSPath(path: filepath)
         
-#warning("createItem(), Properly handle creation of folders.")
         switch cType{
         case .folder:
             Task{
@@ -136,7 +131,6 @@ class FileProviderExtension: NSObject, NSFileProviderReplicatedExtension {
                 return
             }
         default:
-#warning("createItem(), implement for creation of files")
             do{
                 let size = try FileManager.default.attributesOfItem(atPath: url!.path)[.size] as? UInt64 ?? UInt64(0)
                 
@@ -147,10 +141,12 @@ class FileProviderExtension: NSObject, NSFileProviderReplicatedExtension {
                         return
                     }
                     
-                    let newitem = self.generatePlaceHolderItem(fpath: fpath, size: size)
-                    
-                    completionHandler(newitem, [], false, nil)
-                    self.evictItem(Item: newitem)
+                    Task{
+                        let newitem = try await self.getIPFSFileDetails(inpath: fpath)
+                        defer { self.evictItem(Item: newitem) }
+                        
+                        completionHandler(newitem, [], false, nil)
+                    }
                 })
                 
                 return createProgress
@@ -296,6 +292,10 @@ class FileProviderExtension: NSObject, NSFileProviderReplicatedExtension {
     func enumerator(for containerItemIdentifier: NSFileProviderItemIdentifier, request: NSFileProviderRequest) throws -> NSFileProviderEnumerator {
         
         var container = containerItemIdentifier
+        
+        if container == .workingSet {
+            return WorkingSetEnumerator()
+        }
         
         if containerItemIdentifier == .rootContainer{
             container = NSFileProviderItemIdentifier("/")

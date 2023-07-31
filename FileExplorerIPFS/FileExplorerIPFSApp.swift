@@ -52,6 +52,8 @@ class FileProvide {
     }
     
     func RefreshRoot(filepath:String) {
+//        endCydrive()
+//        applicationDidFinishLaunching()
         print("CALLINGGG~~~ ", filepath)
         ProviderConnection(domain: domain).refreshFolder(filepath: filepath)
     }

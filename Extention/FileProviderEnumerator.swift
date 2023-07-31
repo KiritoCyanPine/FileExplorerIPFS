@@ -98,48 +98,87 @@ class FileProviderEnumerator: NSObject, NSFileProviderEnumerator {
          - inform the observer about item deletions and updates (modifications + insertions)
          - inform the observer when you have finished enumerating up to a subsequent sync anchor
          */
+        Task{
+            var filepath:String = ""
+            var items: [Item] = []
+            
+            if enumeratedItemIdentifier != .rootContainer && enumeratedItemIdentifier != .trashContainer && enumeratedItemIdentifier != .workingSet{
+                filepath = enumeratedItemIdentifier.rawValue
+            }
+            
+            let itemcontents = try await getFilesListInPathRecursively(ipfspath: filepath)
+            items.append(contentsOf: itemcontents)
+  
+            observer.didUpdate(items)
+            observer.finishEnumeratingChanges(upTo: NSFileProviderSyncAnchor("response.rank".data(using: .utf8)!), moreComing: false)
+        }
+    }
+    
+    private func getFilesListInPathRecursively(ipfspath:String) async throws -> [Item] {
+        var items: [Item] = []
         
-        //        let filepath = URL.toIPFSPath(path: enumeratedItemIdentifier.rawValue)
-        //        var items: [Item] = []
-        //
-        //        let enumeratedItemIdentifier = self.enumeratedItemIdentifier
-        //        do{
-        //            print(1)
-        //            try FilesList(filepath: filepath) { lsfiles, errOptional in
-        //                guard let fileslist = lsfiles else {
-        //                    return
-        //                }
-        //
-        //                print(2)
-        //                guard let list = fileslist.Entries else {
-        //                    print(3)
-        //                    observer.didUpdate(items)
-        //                    observer.finishEnumeratingChanges(upTo: anchor, moreComing: false)
-        //                    return
-        //                }
-        //                print(4)
-        //                list.forEach { element in
-        //                    var e = element
-        //
-        //                    let fpath = URL.toItemIdentifier(path: enumeratedItemIdentifier.rawValue+"/"+element.Name)
-        //                    e.Name = URL.toItemIdentifier(path: enumeratedItemIdentifier.rawValue+"/"+element.Name)
-        //
-        //                    items.append(Item(fileItem: e, parentItem: enumeratedItemIdentifier, filePath: fpath))
-        //                }
-        //
-        //                observer.didUpdate(items)
-        //                observer.finishEnumeratingChanges(upTo: anchor, moreComing: false)
-        //
-        //            }
-        //
-        //        } catch {
-        //            print(error)
-        //        }
+        let filepath = URL.toIPFSPath(path: ipfspath)
         
-        observer.finishEnumeratingChanges(upTo: anchor, moreComing: false)
+        let fileslist = try await FilesList(filepath: filepath)
+        
+        guard let list = fileslist.Entries else {
+            return items
+        }
+        
+        if filepath != "/"{
+            
+            for element in list{
+                var e = element
+                let fpath = URL.toItemIdentifier(path: filepath+"/"+element.Name)
+                e.Name = fpath
+                
+                let parent = getParentIdentifier(of: fpath)
+                
+                let item = Item(fileItem: e, parentItem: parent)
+                items.append(item)
+                
+                if item.contentType == .folder {
+                    let newitems = try await getFilesListInPathRecursively(ipfspath: item.itemIdentifier.rawValue)
+                    items.append(contentsOf: newitems)
+                }
+            }
+        } else {
+            for element in list{
+                let fpath = URL.toItemIdentifier(path: "/"+element.Name)
+                
+                let item = Item(fileItem: element, parentItem: enumeratedItemIdentifier, filePath: fpath)
+                items.append(item)
+                
+                if item.contentType == .folder {
+                    let newitems = try await getFilesListInPathRecursively(ipfspath: item.itemIdentifier.rawValue)
+                    items.append(contentsOf: newitems)
+                }
+            }
+        }
+        
+        return items
     }
     
     func currentSyncAnchor(completionHandler: @escaping (NSFileProviderSyncAnchor?) -> Void) {
         completionHandler(anchor)
+    }
+    
+    func getParentIdentifier(of filePath:String) -> NSFileProviderItemIdentifier{
+        let parrawid = filePath.components(separatedBy: "/").dropLast().joined(separator: "/")
+        
+        var parentIdentifier = NSFileProviderItemIdentifier(parrawid)
+        
+        if parrawid == "" {
+            parentIdentifier = .rootContainer
+        }
+        
+        return parentIdentifier
+    }
+}
+
+class WorkingSetEnumerator: FileProviderEnumerator {
+    init() {
+        // Enumerate everything from the root, recursively.
+        super.init(enumeratedItemIdentifier: .rootContainer)
     }
 }

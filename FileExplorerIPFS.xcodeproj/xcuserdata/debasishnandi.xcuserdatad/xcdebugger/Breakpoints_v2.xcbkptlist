@@ -89,7 +89,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "66CAC723-5FDB-4966-A619-A5284C97DD02"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Extention/FileProviderExtension.swift"
@@ -608,7 +608,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "C1BDB50F-2A8A-4C4C-AE83-EF456A981B49"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Extention/FileProviderExtension.swift"
@@ -1213,7 +1213,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "2A901F46-184D-4A38-B4E5-A0AF60604B80"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Extention/FileProviderExtension.swift"
@@ -1388,62 +1388,47 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "6BEAD7C9-8A5F-4486-B3ED-554E8D54A959"
+            uuid = "0F21D7A6-F726-4069-A061-D81FEBAD4AA0"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Extention/FileProviderExtension.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "143"
-            endingLineNumber = "143"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
             landmarkName = "createItem(basedOn:fields:contents:options:request:completionHandler:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "6BEAD7C9-8A5F-4486-B3ED-554E8D54A959 - b62a0bdfb28ebf4"
+                  uuid = "0F21D7A6-F726-4069-A061-D81FEBAD4AA0 - b6ad2813fa7e8111"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Sendable () async throws -&gt; () in closure #2 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Extention.FileProviderExtension.createItem(basedOn: __C.NSFileProviderItem, fields: __C.NSFileProviderItemFields, contents: Swift.Optional&lt;Foundation.URL&gt;, options: __C.NSFileProviderCreateItemOptions, request: __C.NSFileProviderRequest, completionHandler: (Swift.Optional&lt;__C.NSFileProviderItem&gt;, __C.NSFileProviderItemFields, Swift.Bool, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; __C.NSProgress"
+                  symbolName = "Extention.FileProviderExtension.createItem(basedOn: __C.NSFileProviderItem, fields: __C.NSFileProviderItemFields, contents: Swift.Optional&lt;Foundation.URL&gt;, options: __C.NSFileProviderCreateItemOptions, request: __C.NSFileProviderRequest, completionHandler: (Swift.Optional&lt;__C.NSFileProviderItem&gt;, __C.NSFileProviderItemFields, Swift.Bool, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; __C.NSProgress"
                   moduleName = "Extention"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/debasishnandi/test-projects/FileExplorerIPFS/Extention/FileProviderExtension.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "143"
-                  endingLineNumber = "143"
-                  offsetFromSymbolStart = "148">
+                  startingLineNumber = "135"
+                  endingLineNumber = "135"
+                  offsetFromSymbolStart = "2264">
                </Location>
                <Location
-                  uuid = "6BEAD7C9-8A5F-4486-B3ED-554E8D54A959 - 1e576ef8c2f36645"
+                  uuid = "0F21D7A6-F726-4069-A061-D81FEBAD4AA0 - 87ae113eaab4b826"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "(1) await resume partial function for closure #1 @Sendable () async throws -&gt; () in closure #2 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Extention.FileProviderExtension.createItem(basedOn: __C.NSFileProviderItem, fields: __C.NSFileProviderItemFields, contents: Swift.Optional&lt;Foundation.URL&gt;, options: __C.NSFileProviderCreateItemOptions, request: __C.NSFileProviderRequest, completionHandler: (Swift.Optional&lt;__C.NSFileProviderItem&gt;, __C.NSFileProviderItemFields, Swift.Bool, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; __C.NSProgress"
+                  symbolName = "closure #2 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Extention.FileProviderExtension.createItem(basedOn: __C.NSFileProviderItem, fields: __C.NSFileProviderItemFields, contents: Swift.Optional&lt;Foundation.URL&gt;, options: __C.NSFileProviderCreateItemOptions, request: __C.NSFileProviderRequest, completionHandler: (Swift.Optional&lt;__C.NSFileProviderItem&gt;, __C.NSFileProviderItemFields, Swift.Bool, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; __C.NSProgress"
                   moduleName = "Extention"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/debasishnandi/test-projects/FileExplorerIPFS/Extention/FileProviderExtension.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "143"
-                  endingLineNumber = "143"
-                  offsetFromSymbolStart = "44">
-               </Location>
-               <Location
-                  uuid = "6BEAD7C9-8A5F-4486-B3ED-554E8D54A959 - 7123cc710362dca7"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(2) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in closure #2 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Extention.FileProviderExtension.createItem(basedOn: __C.NSFileProviderItem, fields: __C.NSFileProviderItemFields, contents: Swift.Optional&lt;Foundation.URL&gt;, options: __C.NSFileProviderCreateItemOptions, request: __C.NSFileProviderRequest, completionHandler: (Swift.Optional&lt;__C.NSFileProviderItem&gt;, __C.NSFileProviderItemFields, Swift.Bool, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; __C.NSProgress"
-                  moduleName = "Extention"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/debasishnandi/test-projects/FileExplorerIPFS/Extention/FileProviderExtension.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "143"
-                  endingLineNumber = "143"
-                  offsetFromSymbolStart = "52">
+                  startingLineNumber = "136"
+                  endingLineNumber = "136"
+                  offsetFromSymbolStart = "348">
                </Location>
             </Locations>
          </BreakpointContent>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "5DB02D4D-26EB-475F-BED0-18A7435AE5C5"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A52609B9-78ED-4F7A-8A26-A99B50745B9A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Extention/FileProviderItem.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "decorations"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "A52609B9-78ED-4F7A-8A26-A99B50745B9A - bcdd49d9a4908f33"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Extention.FileProviderItem.decorations.getter : Swift.Optional&lt;Swift.Array&lt;__C.NSFileProviderItemDecorationIdentifier&gt;&gt;"
+                  moduleName = "Extention"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/debasishnandi/test-projects/FileExplorerIPFS/Extention/FileProviderItem.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "128">
+               </Location>
+               <Location
+                  uuid = "A52609B9-78ED-4F7A-8A26-A99B50745B9A - bcdd49d9a4908ecc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Extention.FileProviderItem.decorations.getter : Swift.Optional&lt;Swift.Array&lt;__C.NSFileProviderItemDecorationIdentifier&gt;&gt;"
+                  moduleName = "Extention"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/debasishnandi/test-projects/FileExplorerIPFS/Extention/FileProviderItem.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "128">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

@@ -8,7 +8,21 @@
 import FileProvider
 import UniformTypeIdentifiers
 
-class FileProviderItem: NSObject, NSFileProviderItem {
+class FileProviderItem: NSObject, NSFileProviderItem, NSFileProviderItemDecorating {
+    static let decorationPrefix = Bundle.main.bundleIdentifier!
+    static let pic = NSFileProviderItemDecorationIdentifier(rawValue: "\(decorationPrefix).pictureDecorationItem")
+    static let heart = NSFileProviderItemDecorationIdentifier(rawValue: "\(decorationPrefix).heartItemDecoration")
+    static let ball = NSFileProviderItemDecorationIdentifier(rawValue: "\(decorationPrefix).ballItemDecoration_1")
+    static let mount = NSFileProviderItemDecorationIdentifier(rawValue: "\(decorationPrefix).mountDecorationItem")
+    
+    var decorations: [NSFileProviderItemDecorationIdentifier]? {
+        var decos = [NSFileProviderItemDecorationIdentifier]()
+        
+        decos.append(FileProviderItem.heart)
+        
+        return decos
+    }
+    
 
     // TODO: implement an initializer to create an item from your extension's backing model
     // TODO: implement the accessors to return the values from your extension's backing model

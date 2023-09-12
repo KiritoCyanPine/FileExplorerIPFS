@@ -12,6 +12,88 @@
 		<string>com.apple.fileprovider-nonui</string>
 		<key>NSExtensionPrincipalClass</key>
 		<string>$(PRODUCT_MODULE_NAME).FileProviderExtension</string>
+		<key>NSFileProviderDecorations</key>
+		<array>
+			<dict>
+				<key>BadgeImageType</key>
+				<string>$(PRODUCT_BUNDLE_IDENTIFIER).ballDecorationItem</string>
+				<key>Category</key>
+				<string>Badge</string>
+				<key>Identifier</key>
+				<string>$(PRODUCT_BUNDLE_IDENTIFIER).ballItemDecoration_1</string>
+				<key>Label</key>
+				<string>Ball Item</string>
+			</dict>
+			<dict>
+				<key>BadgeImageType</key>
+				<string>$(PRODUCT_BUNDLE_IDENTIFIER).pictureDecorationItem</string>
+				<key>Category</key>
+				<string>Badge</string>
+				<key>Identifier</key>
+				<string>$(PRODUCT_BUNDLE_IDENTIFIER).mountDecorationItem</string>
+				<key>Label</key>
+				<string>Mount Item</string>
+			</dict>
+			<dict>
+				<key>BadgeImageType</key>
+				<string>$(PRODUCT_BUNDLE_IDENTIFIER).mountDecorationItem</string>
+				<key>Category</key>
+				<string>FolderBadge</string>
+				<key>Identifier</key>
+				<string>$(PRODUCT_BUNDLE_IDENTIFIER).pictureDecorationItem</string>
+				<key>Label</key>
+				<string>Picture Item</string>
+			</dict>
+			<dict>
+				<key>BadgeImageType</key>
+				<string>com.apple.icon-decoration.badge.warning</string>
+				<key>Category</key>
+				<string>Badge</string>
+				<key>Identifier</key>
+				<string>$(PRODUCT_BUNDLE_IDENTIFIER).heart</string>
+				<key>Label</key>
+				<string>Heart Item</string>
+			</dict>
+		</array>
 	</dict>
+	<key>UTExportedTypeDeclarations</key>
+	<array>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>com.apple.icon-decoration.badge</string>
+			</array>
+			<key>UTTypeDescription</key>
+			<string>Ball Badge Item Name</string>
+			<key>UTTypeGlyphName</key>
+			<string>ballbadge</string>
+			<key>UTTypeIdentifier</key>
+			<string>$(PRODUCT_BUNDLE_IDENTIFIER).ballDecorationItem</string>
+		</dict>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>com.apple.icon-decoration.badge</string>
+			</array>
+			<key>UTTypeDescription</key>
+			<string>Picture Badge Item Name</string>
+			<key>UTTypeGlyphName</key>
+			<string>pictureBadge</string>
+			<key>UTTypeIdentifier</key>
+			<string>$(PRODUCT_BUNDLE_IDENTIFIER).pictureDecorationItem</string>
+		</dict>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>com.apple.icon-decoration.badge</string>
+			</array>
+			<key>UTTypeDescription</key>
+			<string>Mount Icon Badge Item Name</string>
+			<key>UTTypeGlyphName</key>
+			<string>mounticon</string>
+			<key>UTTypeIdentifier</key>
+			<string>$(PRODUCT_BUNDLE_IDENTIFIER).mountDecorationItem</string>
+		</dict>
+	</array>
 </dict>
 </plist>

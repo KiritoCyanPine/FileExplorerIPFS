@@ -1,0 +1,68 @@
+{
+  "images" : [
+    {
+      "filename" : "Ball-7px.png",
+      "idiom" : "mac",
+      "scale" : "1x",
+      "size" : "7x7"
+    },
+    {
+      "filename" : "Ball-14px.png",
+      "idiom" : "mac",
+      "scale" : "2x",
+      "size" : "7x7"
+    },
+    {
+      "filename" : "Ball-11px.png",
+      "idiom" : "mac",
+      "scale" : "1x",
+      "size" : "11x11"
+    },
+    {
+      "filename" : "Ball-22px.png",
+      "idiom" : "mac",
+      "scale" : "2x",
+      "size" : "11x11"
+    },
+    {
+      "filename" : "Ball-24px.png",
+      "idiom" : "mac",
+      "scale" : "1x",
+      "size" : "24x24"
+    },
+    {
+      "filename" : "Ball-48px.png",
+      "idiom" : "mac",
+      "scale" : "2x",
+      "size" : "24x24"
+    },
+    {
+      "filename" : "Ball-50px.png",
+      "idiom" : "mac",
+      "scale" : "1x",
+      "size" : "50x50"
+    },
+    {
+      "filename" : "Ball-100px.png",
+      "idiom" : "mac",
+      "scale" : "2x",
+      "size" : "50x50"
+    },
+    {
+      "filename" : "Ball-100px 1.png",
+      "idiom" : "mac",
+      "scale" : "1x",
+      "size" : "100x100"
+    },
+    {
+      "filename" : "Ball-200px.png",
+      "idiom" : "mac",
+      "scale" : "2x",
+      "size" : "100x100"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

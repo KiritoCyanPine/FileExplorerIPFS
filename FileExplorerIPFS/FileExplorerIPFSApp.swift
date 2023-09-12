@@ -16,8 +16,8 @@ class FileProvide {
     var providerConnection: ProviderConnection!
     
     init() {
-        identifier = NSFileProviderDomainIdentifier(rawValue: "somevalueforipfsexplorer")
-        domain = NSFileProviderDomain(identifier: identifier, displayName: "IPFS")
+        identifier = NSFileProviderDomainIdentifier(rawValue: "0000001")
+        domain = NSFileProviderDomain(identifier: identifier, displayName: "0000001")
     }
     
     func endCydrive () {

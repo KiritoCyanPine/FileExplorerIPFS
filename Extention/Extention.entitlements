@@ -10,5 +10,7 @@
 	<array>
 		<string>$(TeamIdentifierPrefix)com.example.app-group</string>
 	</array>
+	<key>com.apple.security.files.user-selected.read-only</key>
+	<true/>
 </dict>
 </plist>

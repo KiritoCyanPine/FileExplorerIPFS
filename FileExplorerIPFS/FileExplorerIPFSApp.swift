@@ -45,6 +45,18 @@ class FileProvide {
         providerConnection = ProviderConnection(domain: domain)
         providerConnection.resume()
     }
+    
+    func evictRoot(filepath:String) {
+        print("CALLINGGG~~~ ", filepath)
+        ProviderConnection(domain: domain).evictionFolder(filepath: filepath)
+    }
+    
+    func RefreshRoot(filepath:String) {
+//        endCydrive()
+//        applicationDidFinishLaunching()
+        print("CALLINGGG~~~ ", filepath)
+        ProviderConnection(domain: domain).refreshFolder(filepath: filepath)
+    }
 }
 
 

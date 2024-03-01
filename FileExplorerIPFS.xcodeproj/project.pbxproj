@@ -13,11 +13,24 @@
 		323082602A31032E006A3380 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3230825F2A31032E006A3380 /* Preview Assets.xcassets */; };
 		3230826E2A31037E006A3380 /* UniformTypeIdentifiers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3230826D2A31037E006A3380 /* UniformTypeIdentifiers.framework */; };
 		323082712A31037E006A3380 /* FileProviderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323082702A31037E006A3380 /* FileProviderExtension.swift */; };
-		323082732A31037E006A3380 /* FileProviderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323082722A31037E006A3380 /* FileProviderItem.swift */; };
+		323082732A31037E006A3380 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323082722A31037E006A3380 /* Item.swift */; };
 		323082752A31037E006A3380 /* FileProviderEnumerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323082742A31037E006A3380 /* FileProviderEnumerator.swift */; };
 		3230827A2A31037E006A3380 /* Extention.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 3230826B2A31037E006A3380 /* Extention.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		323082802A3103CB006A3380 /* FileConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3230827F2A3103CB006A3380 /* FileConnection.swift */; };
-		323082812A3103CB006A3380 /* FileConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3230827F2A3103CB006A3380 /* FileConnection.swift */; };
+		3256A3FC2A5EAD98006A0586 /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3256A3F42A5EAD98006A0586 /* Common.framework */; };
+		3256A3FD2A5EAD98006A0586 /* Common.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3256A3F42A5EAD98006A0586 /* Common.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		3256A4052A5FCA86006A0586 /* FileChunker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3256A4042A5FCA86006A0586 /* FileChunker.swift */; };
+		3256A4072A5FF8BB006A0586 /* Reader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3256A4062A5FF8BB006A0586 /* Reader.swift */; };
+		329B29B32A52C39A00674A2F /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329B29B22A52C39A00674A2F /* Defaults.swift */; };
+		32B2C7362A3C40A8003AD7BA /* ipfs-api in Frameworks */ = {isa = PBXBuildFile; productRef = 32B2C7352A3C40A8003AD7BA /* ipfs-api */; };
+		32B2C7382A3C41A1003AD7BA /* ipfs-api in Frameworks */ = {isa = PBXBuildFile; productRef = 32B2C7372A3C41A1003AD7BA /* ipfs-api */; };
+		32B2F0712A67DE3C0060F1EA /* FileProviderExtention+Support.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B2F0702A67DE3C0060F1EA /* FileProviderExtention+Support.swift */; };
+		32B2F0792A6A5DF90060F1EA /* FileExplorerIPFSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B2F0782A6A5DF90060F1EA /* FileExplorerIPFSTests.swift */; };
+		32E674602A6ECE8000F782C2 /* PathOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E6745F2A6ECE8000F782C2 /* PathOperations.swift */; };
+		32E674612A6ECE8000F782C2 /* PathOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E6745F2A6ECE8000F782C2 /* PathOperations.swift */; };
+		32E674632A6FA4C000F782C2 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E674622A6FA4C000F782C2 /* Errors.swift */; };
+		32E674642A6FA4C000F782C2 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E674622A6FA4C000F782C2 /* Errors.swift */; };
+		32FBB4702A72EB4600504A58 /* Shell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FBB46F2A72EB4600504A58 /* Shell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +40,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = 3230826A2A31037E006A3380;
 			remoteInfo = Extention;
+		};
+		3256A3FA2A5EAD98006A0586 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3230824D2A31032D006A3380 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3256A3F32A5EAD98006A0586;
+			remoteInfo = Common;
+		};
+		32B2F07A2A6A5DF90060F1EA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3230824D2A31032D006A3380 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 323082542A31032D006A3380;
+			remoteInfo = FileExplorerIPFS;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -42,6 +69,17 @@
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3256A4012A5EAD98006A0586 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3256A3FD2A5EAD98006A0586 /* Common.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -54,11 +92,23 @@
 		3230826B2A31037E006A3380 /* Extention.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Extention.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		3230826D2A31037E006A3380 /* UniformTypeIdentifiers.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UniformTypeIdentifiers.framework; path = System/Library/Frameworks/UniformTypeIdentifiers.framework; sourceTree = SDKROOT; };
 		323082702A31037E006A3380 /* FileProviderExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileProviderExtension.swift; sourceTree = "<group>"; };
-		323082722A31037E006A3380 /* FileProviderItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileProviderItem.swift; sourceTree = "<group>"; };
+		323082722A31037E006A3380 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		323082742A31037E006A3380 /* FileProviderEnumerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileProviderEnumerator.swift; sourceTree = "<group>"; };
 		323082762A31037E006A3380 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		323082772A31037E006A3380 /* Extention.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Extention.entitlements; sourceTree = "<group>"; };
 		3230827F2A3103CB006A3380 /* FileConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileConnection.swift; sourceTree = "<group>"; };
+		3256A3F42A5EAD98006A0586 /* Common.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Common.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3256A4042A5FCA86006A0586 /* FileChunker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileChunker.swift; sourceTree = "<group>"; };
+		3256A4062A5FF8BB006A0586 /* Reader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reader.swift; sourceTree = "<group>"; };
+		329B29B22A52C39A00674A2F /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
+		32B2C7342A3C2C65003AD7BA /* ipfs-api */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "ipfs-api"; path = "../ipfs-api"; sourceTree = "<group>"; };
+		32B2C7392A3C756A003AD7BA /* ExtentionDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ExtentionDebug.entitlements; sourceTree = "<group>"; };
+		32B2F0702A67DE3C0060F1EA /* FileProviderExtention+Support.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileProviderExtention+Support.swift"; sourceTree = "<group>"; };
+		32B2F0762A6A5DF90060F1EA /* FileExplorerIPFSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FileExplorerIPFSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		32B2F0782A6A5DF90060F1EA /* FileExplorerIPFSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileExplorerIPFSTests.swift; sourceTree = "<group>"; };
+		32E6745F2A6ECE8000F782C2 /* PathOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathOperations.swift; sourceTree = "<group>"; };
+		32E674622A6FA4C000F782C2 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		32FBB46F2A72EB4600504A58 /* Shell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +116,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32B2C7362A3C40A8003AD7BA /* ipfs-api in Frameworks */,
+				3256A3FC2A5EAD98006A0586 /* Common.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +126,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				3230826E2A31037E006A3380 /* UniformTypeIdentifiers.framework in Frameworks */,
+				32B2C7382A3C41A1003AD7BA /* ipfs-api in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3256A3F12A5EAD98006A0586 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32B2F0732A6A5DF90060F1EA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,8 +150,10 @@
 		3230824C2A31032D006A3380 = {
 			isa = PBXGroup;
 			children = (
+				32B2C7342A3C2C65003AD7BA /* ipfs-api */,
 				323082572A31032D006A3380 /* FileExplorerIPFS */,
 				3230826F2A31037E006A3380 /* Extention */,
+				32B2F0772A6A5DF90060F1EA /* FileExplorerIPFSTests */,
 				3230826C2A31037E006A3380 /* Frameworks */,
 				323082562A31032D006A3380 /* Products */,
 			);
@@ -95,6 +164,8 @@
 			children = (
 				323082552A31032D006A3380 /* FileExplorerIPFS.app */,
 				3230826B2A31037E006A3380 /* Extention.appex */,
+				3256A3F42A5EAD98006A0586 /* Common.framework */,
+				32B2F0762A6A5DF90060F1EA /* FileExplorerIPFSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -108,6 +179,7 @@
 				323082612A31032E006A3380 /* FileExplorerIPFS.entitlements */,
 				3230825E2A31032E006A3380 /* Preview Content */,
 				3230827F2A3103CB006A3380 /* FileConnection.swift */,
+				32FBB46F2A72EB4600504A58 /* Shell.swift */,
 			);
 			path = FileExplorerIPFS;
 			sourceTree = "<group>";
@@ -131,16 +203,41 @@
 		3230826F2A31037E006A3380 /* Extention */ = {
 			isa = PBXGroup;
 			children = (
+				32B2C7392A3C756A003AD7BA /* ExtentionDebug.entitlements */,
 				323082702A31037E006A3380 /* FileProviderExtension.swift */,
-				323082722A31037E006A3380 /* FileProviderItem.swift */,
+				323082722A31037E006A3380 /* Item.swift */,
 				323082742A31037E006A3380 /* FileProviderEnumerator.swift */,
 				323082762A31037E006A3380 /* Info.plist */,
 				323082772A31037E006A3380 /* Extention.entitlements */,
+				329B29B22A52C39A00674A2F /* Defaults.swift */,
+				3256A4042A5FCA86006A0586 /* FileChunker.swift */,
+				3256A4062A5FF8BB006A0586 /* Reader.swift */,
+				32B2F0702A67DE3C0060F1EA /* FileProviderExtention+Support.swift */,
+				32E6745F2A6ECE8000F782C2 /* PathOperations.swift */,
+				32E674622A6FA4C000F782C2 /* Errors.swift */,
 			);
 			path = Extention;
 			sourceTree = "<group>";
 		};
+		32B2F0772A6A5DF90060F1EA /* FileExplorerIPFSTests */ = {
+			isa = PBXGroup;
+			children = (
+				32B2F0782A6A5DF90060F1EA /* FileExplorerIPFSTests.swift */,
+			);
+			path = FileExplorerIPFSTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		3256A3EF2A5EAD98006A0586 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		323082542A31032D006A3380 /* FileExplorerIPFS */ = {
@@ -151,13 +248,18 @@
 				323082522A31032D006A3380 /* Frameworks */,
 				323082532A31032D006A3380 /* Resources */,
 				3230827E2A31037E006A3380 /* Embed Foundation Extensions */,
+				3256A4012A5EAD98006A0586 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				323082792A31037E006A3380 /* PBXTargetDependency */,
+				3256A3FB2A5EAD98006A0586 /* PBXTargetDependency */,
 			);
 			name = FileExplorerIPFS;
+			packageProductDependencies = (
+				32B2C7352A3C40A8003AD7BA /* ipfs-api */,
+			);
 			productName = FileExplorerIPFS;
 			productReference = 323082552A31032D006A3380 /* FileExplorerIPFS.app */;
 			productType = "com.apple.product-type.application";
@@ -175,9 +277,48 @@
 			dependencies = (
 			);
 			name = Extention;
+			packageProductDependencies = (
+				32B2C7372A3C41A1003AD7BA /* ipfs-api */,
+			);
 			productName = Extention;
 			productReference = 3230826B2A31037E006A3380 /* Extention.appex */;
 			productType = "com.apple.product-type.app-extension";
+		};
+		3256A3F32A5EAD98006A0586 /* Common */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3256A3FE2A5EAD98006A0586 /* Build configuration list for PBXNativeTarget "Common" */;
+			buildPhases = (
+				3256A3EF2A5EAD98006A0586 /* Headers */,
+				3256A3F02A5EAD98006A0586 /* Sources */,
+				3256A3F12A5EAD98006A0586 /* Frameworks */,
+				3256A3F22A5EAD98006A0586 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Common;
+			productName = Common;
+			productReference = 3256A3F42A5EAD98006A0586 /* Common.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		32B2F0752A6A5DF90060F1EA /* FileExplorerIPFSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 32B2F07C2A6A5DF90060F1EA /* Build configuration list for PBXNativeTarget "FileExplorerIPFSTests" */;
+			buildPhases = (
+				32B2F0722A6A5DF90060F1EA /* Sources */,
+				32B2F0732A6A5DF90060F1EA /* Frameworks */,
+				32B2F0742A6A5DF90060F1EA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				32B2F07B2A6A5DF90060F1EA /* PBXTargetDependency */,
+			);
+			name = FileExplorerIPFSTests;
+			productName = FileExplorerIPFSTests;
+			productReference = 32B2F0762A6A5DF90060F1EA /* FileExplorerIPFSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -194,6 +335,13 @@
 					};
 					3230826A2A31037E006A3380 = {
 						CreatedOnToolsVersion = 14.3.1;
+					};
+					3256A3F32A5EAD98006A0586 = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+					32B2F0752A6A5DF90060F1EA = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = 323082542A31032D006A3380;
 					};
 				};
 			};
@@ -212,6 +360,8 @@
 			targets = (
 				323082542A31032D006A3380 /* FileExplorerIPFS */,
 				3230826A2A31037E006A3380 /* Extention */,
+				3256A3F32A5EAD98006A0586 /* Common */,
+				32B2F0752A6A5DF90060F1EA /* FileExplorerIPFSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -233,6 +383,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3256A3F22A5EAD98006A0586 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32B2F0742A6A5DF90060F1EA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -240,6 +404,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32FBB4702A72EB4600504A58 /* Shell.swift in Sources */,
+				32E674602A6ECE8000F782C2 /* PathOperations.swift in Sources */,
+				32E674632A6FA4C000F782C2 /* Errors.swift in Sources */,
 				3230825B2A31032D006A3380 /* ContentView.swift in Sources */,
 				323082802A3103CB006A3380 /* FileConnection.swift in Sources */,
 				323082592A31032D006A3380 /* FileExplorerIPFSApp.swift in Sources */,
@@ -250,10 +417,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32E674612A6ECE8000F782C2 /* PathOperations.swift in Sources */,
+				3256A4052A5FCA86006A0586 /* FileChunker.swift in Sources */,
 				323082712A31037E006A3380 /* FileProviderExtension.swift in Sources */,
-				323082732A31037E006A3380 /* FileProviderItem.swift in Sources */,
+				3256A4072A5FF8BB006A0586 /* Reader.swift in Sources */,
+				32B2F0712A67DE3C0060F1EA /* FileProviderExtention+Support.swift in Sources */,
+				323082732A31037E006A3380 /* Item.swift in Sources */,
+				329B29B32A52C39A00674A2F /* Defaults.swift in Sources */,
+				32E674642A6FA4C000F782C2 /* Errors.swift in Sources */,
 				323082752A31037E006A3380 /* FileProviderEnumerator.swift in Sources */,
-				323082812A3103CB006A3380 /* FileConnection.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3256A3F02A5EAD98006A0586 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32B2F0722A6A5DF90060F1EA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32B2F0792A6A5DF90060F1EA /* FileExplorerIPFSTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +451,16 @@
 			isa = PBXTargetDependency;
 			target = 3230826A2A31037E006A3380 /* Extention */;
 			targetProxy = 323082782A31037E006A3380 /* PBXContainerItemProxy */;
+		};
+		3256A3FB2A5EAD98006A0586 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3256A3F32A5EAD98006A0586 /* Common */;
+			targetProxy = 3256A3FA2A5EAD98006A0586 /* PBXContainerItemProxy */;
+		};
+		32B2F07B2A6A5DF90060F1EA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 323082542A31032D006A3380 /* FileExplorerIPFS */;
+			targetProxy = 32B2F07A2A6A5DF90060F1EA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -301,7 +498,8 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_ON_DEMAND_RESOURCES = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -318,13 +516,15 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = "";
 			};
 			name = Debug;
 		};
@@ -363,6 +563,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_ON_DEMAND_RESOURCES = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -372,12 +573,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = "";
 			};
 			name = Release;
 		};
@@ -387,6 +590,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = FileExplorerIPFS/FileExplorerIPFS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -416,6 +620,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = FileExplorerIPFS/FileExplorerIPFS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -442,7 +647,7 @@
 		3230827C2A31037E006A3380 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = Extention/Extention.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Extention/ExtentionDebug.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F48MGZ86Q2;
@@ -491,6 +696,112 @@
 			};
 			name = Release;
 		};
+		3256A3FF2A5EAD98006A0586 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = F48MGZ86Q2;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = cylogic.Common;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		3256A4002A5EAD98006A0586 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = F48MGZ86Q2;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = cylogic.Common;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		32B2F07D2A6A5DF90060F1EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = F48MGZ86Q2;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = cylogic.FileExplorerIPFSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FileExplorerIPFS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/FileExplorerIPFS";
+			};
+			name = Debug;
+		};
+		32B2F07E2A6A5DF90060F1EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F48MGZ86Q2;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = cylogic.FileExplorerIPFSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FileExplorerIPFS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/FileExplorerIPFS";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -521,7 +832,36 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		3256A3FE2A5EAD98006A0586 /* Build configuration list for PBXNativeTarget "Common" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3256A3FF2A5EAD98006A0586 /* Debug */,
+				3256A4002A5EAD98006A0586 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		32B2F07C2A6A5DF90060F1EA /* Build configuration list for PBXNativeTarget "FileExplorerIPFSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				32B2F07D2A6A5DF90060F1EA /* Debug */,
+				32B2F07E2A6A5DF90060F1EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		32B2C7352A3C40A8003AD7BA /* ipfs-api */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = "ipfs-api";
+		};
+		32B2C7372A3C41A1003AD7BA /* ipfs-api */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = "ipfs-api";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3230824D2A31032D006A3380 /* Project object */;
 }

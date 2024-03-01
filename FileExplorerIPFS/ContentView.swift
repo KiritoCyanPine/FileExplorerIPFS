@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var filepath: String = ""
+    
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -15,12 +18,31 @@ struct ContentView: View {
                 .foregroundColor(.accentColor)
             Text("Hello, Cydrive!")
             
-            Button("Start Cydrive", action: startServe)
+            Button("Mount Cydrive", action: startServe)
             
-            Button("Stop Cydrive", action: endServe)
+            Button("Unmount Cydrive", action: endServe)
             
+            TextField("File path of the file...", text: $filepath)
+            
+            HStack{
+                Button("Evict Items", action:{ evict(filepath: filepath)})
+                Button("Refresh Dir", action:{ refreshScreen(identifire:filepath)})
+            }
         }
         .padding()
+        
+        
+        
+    }
+     
+}
+
+struct FrameSizeApp: App {
+    var body: some Scene {
+        WindowGroup {
+            ContentView()
+            .frame(minWidth: 100, maxWidth: 400, minHeight: 500, maxHeight: 50)
+        }
     }
 }
 
@@ -30,6 +52,14 @@ func startServe() {
 
 func endServe() {
     var _: () = FileProvide().endCydrive()
+}
+
+func evict(filepath:String) {
+    var _ = FileProvide().evictRoot(filepath: filepath)
+}
+
+func refreshScreen(identifire:String) {
+    var _ = FileProvide().RefreshRoot(filepath: identifire)
 }
 
 struct ContentView_Previews: PreviewProvider {
